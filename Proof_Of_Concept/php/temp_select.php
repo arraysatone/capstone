@@ -12,25 +12,31 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT temp,time FROM Sensor WHERE time=(SELECT MAX(time) FROM Sensor)";
+$sql = "SELECT temp,time, uid FROM Sensor WHERE time=(SELECT MAX(time) FROM Sensor)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
       // output data of each row
   while($row = $result->fetch_assoc()) {
+    $uid = $row[uid];
+    $sqlThresh = "SELECT threshold FROM TemperatureThresholds WHERE uid = '".$uid."'";
+    $thresh = $conn->query($sqlThresh);
     $DOUBLEtemp = doubleval($row['temp']);
-    if ($DOUBLEtemp>=28){
-      $color = 'Red';
-    }
-    else{
-      $color='Grn';
+    while($innerRow = $thresh->fetch_assoc()){
+      if ($DOUBLEtemp >= $innerRow[threshold]){
+        $color = 'Red';
+      }
+      else{
+        $color='Grn';
+      }
     }
     $temp = $row["temp"];
     $time = $row["time"];
     echo "<p class='temp text". $color ."'>". substr($temp, 0,2). " &degC</p>";
     echo substr($time,11,5);
   }
-} else {
+}
+else {
   echo "0 results";
 }
 $conn->close();

@@ -4,7 +4,6 @@ html, body {
 }
 .temp{
 	margin-top: 5%;
-	margin-bottom: 5%;
 	font-size: 200%;
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
@@ -55,6 +54,9 @@ html, body {
 	font-family: Verdana, Geneva, sans-serif;
 	font-weight: bold;
 	color: white;
+}
+.textWht{
+	color: rgb(255,255,255);
 }
 .textRed{
 	color: rgb(241,99,100);

@@ -42,20 +42,20 @@
 	</div>
 	<div class="row">
 		<div class="col block" id="accel">
-			<p class="accel textGry">No Motion Detected</p>
+			<p class="accel textGry">No Movement Detected</p>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" id="maxTemp">
 		<div class="histLbl col hist">HIGH*</div>
-		<div class="histInfo col hist textRed">31 &degC</div>
+		<div class="col hist histInfo">-- &degC</div>
 	</div>
-	<div class="row">
+	<div class="row" id="minTemp">
 		<div class="col hist histLbl">LOW*</div>
-		<div class="col hist histInfo">18 &degC</div>
+		<div class="col hist histInfo">-- &degC</div>
 	</div>
 	<div class="row">
 		<div class="col hist histLbl">Updated</div>
-		<div class="col hist histInfo" id="time">LOADING</div>
+		<div class="col hist histInfo" id="time">--:--</div>
 	</div>
 	<div class="row">
 		<div class="col disclaim histInfo">*LAST 24 HOURS</div>

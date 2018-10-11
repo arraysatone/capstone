@@ -5,32 +5,40 @@
 //  Copyright © 2018 ArraysAtOne. All rights reserved.
 //
 
+//Imports
 import UIKit
 import WebKit
 
-class ApplicationViewController: UIViewController, WKUIDelegate {
+class ApplicationViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
-    var applicationWebView: WKWebView?
-    var applicationURL = URL(string: "https://harquaim.dev.fast.sheridanc.on.ca/Capstone")
+    //Outlets
+    //@IBOutlet var webView: WKWebView?
+    @IBOutlet var webView: WKWebView?
     
+    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let applicationURL = self.applicationURL{
-            let applicationRequest = URLRequest(url: applicationURL)
-            applicationWebView?.load(applicationRequest)
+        //Set Destination URL Safely
+        guard let applicationURL = URL(string: "https://harquaim.dev.fast.sheridanc.on.ca/Capstone") else{
+            return
         }
+        
+        //Load Web Application
+        let applicationRequest = URLRequest(url: applicationURL)
+        webView?.load(applicationRequest)
     }
     
+    //Status Bar Change to Accomodate for Stylizations
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    //Prepare Webkit View to Access Web Application
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
-        applicationWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        applicationWebView?.uiDelegate = self
-        view = applicationWebView
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView?.uiDelegate = self
+        view = webView
     }
-    
 }

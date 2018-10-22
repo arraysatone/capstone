@@ -12,7 +12,6 @@ import WebKit
 class ApplicationViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
     //Outlets
-    //@IBOutlet var webView: WKWebView?
     @IBOutlet var webView: WKWebView?
     
     //ViewDidLoad
@@ -20,7 +19,7 @@ class ApplicationViewController: UIViewController, WKUIDelegate, WKNavigationDel
         super.viewDidLoad()
         
         //Set Destination URL Safely
-        guard let applicationURL = URL(string: "https://harquaim.dev.fast.sheridanc.on.ca/Capstone") else{
+        guard let applicationURL = URL(string: "https://harquaim.dev.fast.sheridanc.on.ca/Capstone/") else{
             return
         }
         

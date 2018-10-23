@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
     $relTime = $curtime - $time;
     if (($curtime - $time) >= 10){
       $color='Gry';
-      echo "<p class='accel text". $color ."'>No Movement Detected</p>";
+      echo "<p class='accel'>No Movement Detected</p>";
     }
     else{
       $color = 'Red';

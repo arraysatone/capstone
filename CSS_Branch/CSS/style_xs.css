@@ -64,6 +64,19 @@ html, body {
 	font-weight: bold;
 }
 
+.textWht{
+	color: rgb(255,255,255);
+}
+.textRed{
+	color: rgb(241,99,100);
+}
+.textGrn{
+	color: rgb(90,213,102);
+}
+.textGry{
+	color: rgb(90, 90, 90);
+}
+
 /* History and Trends */
 .hist{
 	font-size: 200%;

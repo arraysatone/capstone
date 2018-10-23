@@ -62,23 +62,28 @@ if ($maxResult->num_rows > 0) {
       // output data of each row
   while($row = $maxResult->fetch_assoc()) {
 
-    $tempMax = $row['MAX(temp)'];
-    $tempMin = $row['MIN(temp)'];
-
-    if (doubleval($tempMax) >= $threshTemp){
-      $colorMax = 'Red';
+    if(is_null($row['MAX(temp)'])){
+      echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo textNrm'>-- &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo textNrm'>-- &degC</div>";
     }
     else{
-      $colorMax ='Wht';
-    }
-    if (doubleval($tempMin) >= $threshTemp){
-      $colorMin = 'Red';
-    }
-    else{
-      $colorMin ='Wht';
-    }
+      $tempMax = $row['MAX(temp)'];
+      $tempMin = $row['MIN(temp)'];
 
-    echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo text". $colorMax ."'>". substr($tempMax, 0,2). " &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo text". $colorMin ."'>". substr($tempMin, 0,2). " &degC</div>";
+      if (doubleval($tempMax) >= $threshTemp){
+        $colorMax = 'Red';
+      }
+      else{
+        $colorMax ='Wht';
+      }
+      if (doubleval($tempMin) >= $threshTemp){
+        $colorMin = 'Red';
+      }
+      else{
+        $colorMin ='Wht';
+      }
+
+      echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo text". $colorMax ."'>". substr($tempMax, 0,2). " &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo text". $colorMin ."'>". substr($tempMin, 0,2). " &degC</div>";
+    }
   }
 }
 else {

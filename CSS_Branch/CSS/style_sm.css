@@ -1,10 +1,17 @@
+/*
+*	ArraysAtOne Capstone 2018 - Maple Leaf Foods
+*
+*	Kevin Baumgartner
+*	Jesse Berube
+*	Marc Harquail
+*	Alex Ireland
+*
+*/
+
+/* Mobile Phones Media Queries */
 @media only screen and (min-width: 320px) and (max-width: 430px) {
 
 	/* Navigation Bar */
-	.navbar{
-		background-color: #343A40 !important;
-	}
-
 	#navbar-image{
 		width: 12vw;
 		height: auto;

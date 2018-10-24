@@ -1,0 +1,209 @@
+/*
+*	ArraysAtOne Capstone 2018 - Maple Leaf Foods
+*
+*	Kevin Baumgartner
+*	Jesse Berube
+*	Marc Harquail
+*	Alex Ireland
+*
+*/
+
+/* Base */
+html, body {
+    max-width: 100%;
+    padding-top: 40px;
+    overflow-x: hidden;
+    background-color: #FAFAFA;
+    font-family: Helvetica, Verdana, sans-serif;
+    background-color: #4D5C68;
+}
+
+/* Navigation Bar */
+.navbar{
+	background-color: #343A40 !important;
+}
+
+.nav-link{
+	margin: 2%;
+	padding: 0;
+	border-bottom: 1px solid #4D5C68;
+}
+
+#navbar-image{
+	width: 8vw;
+	height: auto;
+	margin: 1%;
+}
+
+.navbar-toggler{
+	background-color: #4D5C68 !important;
+	margin: 1%;
+}
+
+.container{
+	margin: 0;
+}
+
+/* Column Listings */
+.col-lg-12{
+	margin-top: 5%;
+}
+
+/* Data Text Edits */
+.temp{
+	margin-top: 5%;
+	font-size: 200%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.accel{
+	margin-bottom: 5%;
+	font-size: 150%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.textWht{
+	color: rgb(255,255,255);
+}
+.textRed{
+	color: rgb(241,99,100);
+}
+.textGrn{
+	color: rgb(90,213,102);
+}
+.textGry{
+	color: rgb(90, 90, 90);
+}
+
+/* History and Trends */
+.hist{
+	font-size: 200%;
+	margin-bottom: 5%;
+	font-weight: bold;
+	color: white;
+}
+
+.chart{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.disclaim{
+	font-size: 100%;
+	margin-bottom: 5%;
+	font-weight: bold;
+	color: white;
+}
+
+.histLbl{
+	text-align: left;
+	margin-left: 10%;
+}
+
+.histInfo{
+	text-align: right;
+	margin-right: 10%;
+}
+
+.cabinet{
+	font-size: 400%;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+
+.textNav{
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+
+/* Button CSS */
+.btn{
+	width: 40%;
+  	height: 25vw;
+  	float: left;
+  	margin: 4% 0% 4% 6.6%;
+  	border-radius: 6px;
+  	font-size: 3vw;
+  	border: 0px solid transparent;
+}
+
+.btn:hover{
+	background-color: ;
+}
+
+.btn th{
+	font-weight: 100;
+}
+
+/* Button Colour Classifications */
+
+/* RED ALERT */
+.btn-sq-rd {
+  background-color: #E6212B;
+  color: #FAFAFA;
+}
+
+.btn-sq-rd .btnData{
+	background-color: #FFE5E5;
+}
+
+/* YELLOW ALERT */
+.btn-sq-yl {
+  background-color: #FFC021;
+  color: #121212;
+}
+
+.btn-sq-yl .btnData{
+	background-color: #FFF6E5;
+}
+
+/* DEFAULT */
+.btn-sq-nm {
+  background-color: #A4B8D8;
+  color: #121212;
+}
+
+.btn-sq-nm .btnData{
+	background-color: #E5EFFF;
+}
+
+/* Button Extra Styling */
+.btnData{
+	color: #121212;
+	border-radius: 6px;
+	margin: 3% 0% 0% 0%;
+	padding: 6% 0% 6% 0%;
+}
+
+.btnTable{
+	width: 100%;
+	height: 100%;
+}
+
+.btnTitle{
+	text-transform: uppercase;
+	text-align: center;
+	width: 30%;
+	padding: 5% 0% 2% 0%;
+	font-size: 4vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.btnTemp{
+	text-align: center;
+	width: 50%;
+	font-size: 5vw;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 0px;
+}
+
+.btnMotion{
+	text-align: center;
+	width: 50%;
+}

@@ -12,7 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT time, uid FROM sensor2 WHERE time=(SELECT MAX(time) FROM Sensor)";
+$sql = "SELECT uid, time FROM sensor2 WHERE time = (SELECT MAX(time) from sensor2)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -21,13 +21,14 @@ if ($result->num_rows > 0) {
     $uid = $row[uid];
     $time = strtotime($row[time]);
     $curtime = time();
-    if (($curtime - $time) >= 120){
-      $color = 'Red';
-      echo "<p class='accel text". $color ."'>Movement Detected</p>";
+    $relTime = $curtime - $time;
+    if (($curtime - $time) >= 10){
+      $color='Gry';
+      echo "<p class='accel'>No Movement Detected</p>";
     }
     else{
-      $color='Gry';
-      echo "<p class='accel text". $color ."'>No Movement Detected</p>";
+      $color = 'Red';
+      echo "<p class='accel text". $color ."'>Movement Detected</p>";
     }
   }
 }

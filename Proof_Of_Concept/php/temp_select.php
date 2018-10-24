@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
     $DOUBLEtemp = doubleval($row['temp']);
     while($innerRow = $thresh->fetch_assoc()){
       if ($DOUBLEtemp >= $innerRow[threshold]){
+        notification($uid, $DOUBLEtemp);
         $color = 'Red';
       }
       else{
@@ -61,27 +62,47 @@ if ($maxResult->num_rows > 0) {
       // output data of each row
   while($row = $maxResult->fetch_assoc()) {
 
-    $tempMax = $row['MAX(temp)'];
-    $tempMin = $row['MIN(temp)'];
-
-    if (doubleval($tempMax) >= $threshTemp){
-      $colorMax = 'Red';
+    if(is_null($row['MAX(temp)'])){
+      echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo textNrm'>-- &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo textNrm'>-- &degC</div>";
     }
     else{
-      $colorMax ='Wht';
-    }
-    if (doubleval($tempMin) >= $threshTemp){
-      $colorMin = 'Red';
-    }
-    else{
-      $colorMin ='Wht';
-    }
+      $tempMax = $row['MAX(temp)'];
+      $tempMin = $row['MIN(temp)'];
 
-    echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo text". $colorMax ."'>". substr($tempMax, 0,2). " &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo text". $colorMin ."'>". substr($tempMin, 0,2). " &degC</div>";
+      if (doubleval($tempMax) >= $threshTemp){
+        $colorMax = 'Red';
+      }
+      else{
+        $colorMax ='Wht';
+      }
+      if (doubleval($tempMin) >= $threshTemp){
+        $colorMin = 'Red';
+      }
+      else{
+        $colorMin ='Wht';
+      }
+
+      echo "<div class='histLbl col hist'>HIGH*</div><div class='col hist histInfo text". $colorMax ."'>". substr($tempMax, 0,2). " &degC</div><div class='col hist histLbl'>LOW*</div><div class='col hist histInfo text". $colorMin ."'>". substr($tempMin, 0,2). " &degC</div>";
+    }
   }
 }
 else {
   echo "0 results";
 }
 
+function notification($id, $tempera) {
+  $to = "mharquail95@hotmail.ca";
+  $subject = "Sensor " . $id . " Is Over Temperature Threshold";
+
+
+  $message = "Sensor ". $id . " is reading a temperature of " .substr($tempera, 0,2). " degrees celsius, which exceeds the threshold set for this sensor.";
+
+  $headers = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-Type: text/html; charset=ISO-8859-1'. "\r\n";
+
+  mail($to,$subject,$message);
+}
+
 $conn->close();
+
+?>

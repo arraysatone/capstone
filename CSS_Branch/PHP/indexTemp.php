@@ -26,17 +26,13 @@ if ($result->num_rows > 0) {
     $DOUBLEtemp = doubleval($row['temp']);
     while($innerRow = $thresh->fetch_assoc()){
       if ($DOUBLEtemp >= $innerRow[threshold]){
-        notification($uid, $DOUBLEtemp);
-        $color = 'Red';
+        echo "btn-sq-rd";
       }
       else{
-        $color='Grn';
+        echo "btn-sq-nm";
       }
-      $threshTemp = $innerRow[threshold];
+      echo "".substr($DOUBLEtemp,0,2)."&degC";
     }
-    $temp = $row[temp];
-    $time = $row[time];
-    echo "<p class='temp text". $color ."'>". substr($temp, 0,2). " &degC</p>";
   }
 }
 else {

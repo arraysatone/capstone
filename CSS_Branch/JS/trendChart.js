@@ -159,6 +159,11 @@ window.onload = function() {
     });
 }
 
-function newDoc() {
-    window.location.assign("index.html")
+function shareEmail() {
+    var timeStamp = new Date();
+    var readableTime = timeStamp.toDateString();
+    var email = 'mharquail95@gmail.com';
+    var subject = 'Report for ' + timeStamp;
+    var emailBody = 'Hey Marc, here is the latest report on the cabinets';
+    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
 }

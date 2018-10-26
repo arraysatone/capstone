@@ -14,7 +14,7 @@
 		4E980E53216E245E006C70DB /* CapstoneApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E980E52216E245E006C70DB /* CapstoneApplicationTests.swift */; };
 		4E980E5E216E245E006C70DB /* CapstoneApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E980E5D216E245E006C70DB /* CapstoneApplicationUITests.swift */; };
 		4E980E6C216E2633006C70DB /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E980E6B216E2633006C70DB /* ApplicationViewController.swift */; };
-		4E980E6F216E2C9D006C70DB /* maple.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E980E6E216E2C9D006C70DB /* maple.png */; };
+		AE3F73CD2183711000B3A004 /* maple.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3F73CC2183711000B3A004 /* maple.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		4E980E5D216E245E006C70DB /* CapstoneApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneApplicationUITests.swift; sourceTree = "<group>"; };
 		4E980E5F216E245E006C70DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E980E6B216E2633006C70DB /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
-		4E980E6E216E2C9D006C70DB /* maple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maple.png; sourceTree = "<group>"; };
+		AE3F73CC2183711000B3A004 /* maple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = maple.png; path = ../../../CSS_Branch/MEDIA/maple.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 		4E980E6D216E2C80006C70DB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				4E980E6E216E2C9D006C70DB /* maple.png */,
+				AE3F73CC2183711000B3A004 /* maple.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				4E980E48216E245E006C70DB /* LaunchScreen.storyboard in Resources */,
 				4E980E45216E245E006C70DB /* Assets.xcassets in Resources */,
 				4E980E43216E245D006C70DB /* Main.storyboard in Resources */,
-				4E980E6F216E2C9D006C70DB /* maple.png in Resources */,
+				AE3F73CD2183711000B3A004 /* maple.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

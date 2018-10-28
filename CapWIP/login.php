@@ -64,14 +64,23 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<form method="post">
-					<label for="rememberBox" style="color:white">Username: </label>
-					<input type="text" name="user" placeholder="Username" id="user"><br>
-					<label for="rememberBox" style="color:white">Password: </label>
-					<input type="password" placeholder="Password" name="pass" id="pass"><br>
-					<input type="checkbox" name="RememberMe" value="True">
-					<label for="rememberBox" style="color:white">Remember Me?</label><br>
-					<input type="submit" value="Login" id="loginBtn" formaction="./php/login.php">
-					<input type="submit" value="Register" id="registerBtn" formaction="./php/register.php">
+					<div class="loginDiv"
+					<label for="usernameText">Username: </label>
+					<input type="text" name="user" placeholder="Username" id="user">
+					</div>
+					<br>
+					<div class="loginDiv">
+						<label for="passwordText">Password: </label>
+						<input type="password" placeholder="Password" name="pass" id="pass">
+					</div>
+					<div class="loginDiv">
+						<input type="checkbox" name="RememberMe" value="True">
+						<label for="rememberBox" style="color:white">Remember Me?</label>
+					</div>
+					<div class="loginDiv">
+						<input type="submit" value="Login" id="loginBtn" formaction="./php/login.php">
+						<input type="submit" value="Register" id="registerBtn" formaction="./php/register.php">
+					</div>
 				</form>
 			</div>
 		</div>

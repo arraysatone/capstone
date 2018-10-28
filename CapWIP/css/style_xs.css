@@ -207,3 +207,13 @@ html, body {
 	text-align: center;
 	width: 50%;
 }
+
+.loginDiv{
+	width: 90%;
+  	height: 10vw;
+  	float: left;
+  	margin: 4% 5% 4% 5%;
+  	border-radius: 6px;
+  	font-size: 3vw;
+  	border: 0px solid transparent;
+}

@@ -38,8 +38,6 @@
 
  -->
 
-
-
 <!DOCTYPE html>
 
 <!-- HTML -->
@@ -102,12 +100,18 @@
         		</div>
             </div>
     	</nav>
-
-        <!-- Cabinet List -->
-        <br><br><br><br><br>
-    	<input type="range" id="rangeThresh" min='0' max='100' value=<?php echo "'".$threshold."'"; ?> onchange="updateTextInput(this.value);">
-    	<input type="text" id="textThresh" value=<?php echo "'".$threshold."'"; ?> onchange="updateRangeInput(this.value);">
-    	<input type="button" id="submitToAjax" value="Change Threshold">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Cabinet List -->
+                <div class="loginDiv">
+                	<input type="range" id="rangeThresh" min='10' max='70' class="slider" value=<?php echo "'".$threshold."'"; ?> oninput="updateTextInput(this.value);">
+                	<input type="number" id="textThresh" min='10' max='70' class="tempNum" value=<?php echo "'".$threshold."'"; ?> onchange="updateRangeInput(this.value);"/>
+                </div>
+                <br>
+            	<input type="button" id="submitToAjax" class="loginDiv buttons" value="Change Threshold">
+                <div id="successDiv">Threshold Changed</div>
+            </div>
+        </div>
     </body>
     
     <script>
@@ -116,14 +120,26 @@
           document.getElementById('textThresh').value=val; 
     }
     function updateRangeInput(val) {
-          document.getElementById('rangeThresh').value=val; 
+        if (val >70){
+            val = 70;
+        }
+        else if(val < 10){
+            val = 10;
+        }
+        document.getElementById('rangeThresh').value=val;
+        document.getElementById('textThresh').value=val;
     }
     
     
     $("#submitToAjax").click(function(){
         $.post("./php/tempchanger.php", { temp: ""+document.getElementById("textThresh").value },
         function(data, status){
-            alert("Status: " + status);
+            var threshText = document.getElementById("successDiv");
+            threshText.style.display = "inline";
+            setTimeout(function(){
+                threshText.style.display = "none";
+            }, 3000);
+            //alert("Status: " + status);
         });
     }); 
     </script>

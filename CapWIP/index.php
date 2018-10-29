@@ -93,7 +93,7 @@
                 	<span class="btnTitle">Cabinet 2</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">26&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -102,7 +102,7 @@
                 	<span class="btnTitle">Cabinet 3</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">25&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -111,7 +111,7 @@
                 	<span class="btnTitle">Cabinet 4</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">24&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -120,7 +120,7 @@
                 	<span class="btnTitle">Cabinet 5</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">23&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -129,7 +129,7 @@
                 	<span class="btnTitle">Cabinet 6</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">22&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -138,7 +138,7 @@
                     <span class="btnTitle">Cabinet 7</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">21&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -147,7 +147,7 @@
                     <span class="btnTitle">Cabinet 8</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">20&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -156,7 +156,7 @@
                     <span class="btnTitle">Cabinet 9</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">19&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>
@@ -165,7 +165,7 @@
                     <span class="btnTitle">Cabinet 10</span>
                     <br>
                     <div class="btnData">
-                        <span class="btnTemp">18&degC</span>
+                        <span class="btnTemp">--&degC</span>
                         <br>
                         <span class="btnMotion">No Movement Detected</span>
                     </div>

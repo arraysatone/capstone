@@ -215,5 +215,99 @@ html, body {
   	margin: 4% 5% 4% 5%;
   	border-radius: 6px;
   	font-size: 3vw;
+  	color: white;
   	border: 0px solid transparent;
+}
+
+/* Login and threshold buttons */
+.buttons{
+	background-color: #A4B8D8;
+    font-weight: bold;
+	color: #121212;
+}
+
+/* Slider */
+
+.slider {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 15px;
+    border-radius: 5px;
+    background: #121212;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 6px;
+    background: #A4B8D8;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 6px;
+    background: #A4B8D8;
+    cursor: pointer;
+}
+
+/* Number input */
+.tempNum {
+	background: rgba(0, 0, 0, 0);
+	color: #A4B8D8;
+	font-size: 5vw;
+	margin: 0% 0% 0% 1%;
+	border: 0px;
+	font-weight: bold;	
+}
+
+#successDiv {
+	display: none;
+	width: 90%;
+  	height: 10vw;
+  	float: left;
+  	margin: 4% 5% 4% 5%;
+  	font-size: 3vw;
+  	text-align: center;
+  	font-weight: bold;
+  	color: white;
+  	transition: all 2s ease-in-out;
+}
+
+.loginInput{
+	width: 90%;
+  	height: 10vw;
+  	float: left;
+  	margin: 2% 5% 2% 5%;
+  	font-size: 3vw;
+  	color: white;
+  	display: inline-block;
+}
+
+.inputLbl{
+	width: 100%;
+}
+
+.inputTxt{
+	width: 100%;
+	border: 0px;
+	padding: 2%;
+	border-radius: 6px;
+}
+
+.rememberDiv{
+	width: 90%;
+  	height: 10vw;
+  	float: left;
+  	margin: 9% 5% 0% 5%;
+  	font-size: 3vw;
+  	color: white;
+  	display: inline-block;
 }

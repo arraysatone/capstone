@@ -64,23 +64,24 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<form method="post">
-					<div class="loginDiv"
-					<label for="usernameText">Username: </label>
-					<input type="text" name="user" placeholder="Username" id="user">
+					<div class="loginInput">
+						<label for="usernameText" class="inputLbl">Username:</label>
+						<input type="text" name="user" placeholder="Username" id="user" class="inputTxt">
+					</div>
+					<br><br>
+					<div class="loginInput">
+						<br>
+						<label for="passwordText" class="inputLbl">Password:</label>
+						<input type="password" placeholder="Password" name="pass" id="pass" class="inputTxt">
 					</div>
 					<br>
-					<div class="loginDiv">
-						<label for="passwordText">Password: </label>
-						<input type="password" placeholder="Password" name="pass" id="pass">
-					</div>
-					<div class="loginDiv">
+					<div class="rememberDiv">
 						<input type="checkbox" name="RememberMe" value="True">
-						<label for="rememberBox" style="color:white">Remember Me?</label>
+						<label for="rememberBox">Remember Me?</label>
 					</div>
-					<div class="loginDiv">
-						<input type="submit" value="Login" id="loginBtn" formaction="./php/login.php">
-						<input type="submit" value="Register" id="registerBtn" formaction="./php/register.php">
-					</div>
+					<input type="submit" value="Login" class="loginDiv buttons" id="loginBtn" formaction="./php/login.php">
+					<br>
+					<input type="submit" value="Register" class="loginDiv buttons" id="registerBtn" formaction="./php/register.php">
 				</form>
 			</div>
 		</div>

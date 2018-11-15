@@ -1,17 +1,17 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
 
-require '/home/berubeje/public_html/Notification/PHPMailer/src/Exception.php';
-require '/home/berubeje/public_html/Notification/PHPMailer/src/PHPMailer.php';
-require '/home/berubeje/public_html/Notification/PHPMailer/src/SMTP.php';
+// require '/home/berubeje/public_html/Notification/PHPMailer/src/Exception.php';
+// require '/home/berubeje/public_html/Notification/PHPMailer/src/PHPMailer.php';
+// require '/home/berubeje/public_html/Notification/PHPMailer/src/SMTP.php';
 
 
-$servername = "142.55.32.48";
-$username = "harquaim_php";
-$password = "c@pstone_server";
-$dbname = "harquaim_capstone";
+$servername = "107.180.27.180";
+$username = "MapleLeafAdmin";
+$password = "ClVq0Qzt21jz";
+$dbname = "Mapleleaf_Capstone";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -21,7 +21,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT temp, time, uid FROM Sensor WHERE time=(SELECT MAX(time) FROM Sensor)";
+$sql = "SELECT temp, time FROM SENSOR_0001203B WHERE time=(SELECT MAX(time) FROM SENSOR_0001203B)";
 
 $result = $conn->query($sql);
 
@@ -29,40 +29,40 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
       // output data of each row
   while($row = $result->fetch_assoc()) {
-    $uid = $row[uid];
-    $sqlThresh = "SELECT threshold FROM TemperatureThresholds WHERE uid = '".$uid."'";
+    $uid = "0001203B";
+    $sqlThresh = "SELECT threshold FROM SENSORS WHERE uid = '".$uid."'";
     $thresh = $conn->query($sqlThresh);
     $DOUBLEtemp = doubleval($row['temp']);
     while($innerRow = $thresh->fetch_assoc()){
       if ($DOUBLEtemp >= $innerRow[threshold]){
 		  
-		$color = 'Red';
-		 
-		//Start of code for email notification 		 
-		$sqlEmail = "SELECT lastEmail, emailDelay FROM SENSORS WHERE uid = '".$uid."'";
-		$emailResult = $conn->query($sqlEmail);
-		
-		
-		while($innerResult = $emailResult->fetch_assoc()){
-			$lastEmail = $innerResult[lastEmail];
-			$delay = $innerResult[emailDelay];
-			//Turn time received from database to unix timestamp
-			$lastEmailUnix = strtotime($lastEmail);
-			$currentTime = time();
-			
-			//Calulated the time difference in minutes
-			$difference = ($currentTime - $lastEmailUnix)/60;			
+    		$color = 'Red';
+    		 
+    		//Start of code for email notification 		 
+    		//$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
+    		//$emailResult = $conn->query($sqlEmail);
+    		
+    		
+    		// while($innerResult = $emailResult->fetch_assoc()){
+    		// 	$lastEmail = $innerResult[lastEmail];
+    		// 	$delay = $innerResult[emailDelay];
+    		// 	//Turn time received from database to unix timestamp
+    		// 	$lastEmailUnix = strtotime($lastEmail);
+    		// 	$currentTime = time();
+    			
+    		// 	//Calulated the time difference in minutes
+    		// 	$difference = ($currentTime - $lastEmailUnix)/60;			
 
-			if($difference > $delay)
-			{
-				//Send the notifiation and updated the lastemail column in the database
-			    notification($uid, $DOUBLEtemp);
-				$currentTime = date("Y-m-d H:i:s");
-				$insert = "UPDATE SENSORS SET lastEmail = '".$currentTime."' WHERE uid = '".$uid."'";
-				$runInsert = $conn->query($insert);		
-			}
+    		// 	if($difference > $delay)
+    		// 	{
+    		// 		//Send the notifiation and updated the lastemail column in the database
+    		// 	    notification($uid, $DOUBLEtemp);
+    		// 		$currentTime = date("Y-m-d H:i:s");
+    		// 		$insert = "UPDATE EMAIL_NOTIF SET lastEmail = '".$currentTime."' WHERE uid = '".$uid."'";
+    		// 		$runInsert = $conn->query($insert);		
+    		// 	}
 
-		}
+    		// }
       }
       else{
         $color='Grn';
@@ -88,7 +88,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$maxTemp = "SELECT MAX(temp), MIN(temp) FROM Sensor WHERE time > DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+$maxTemp = "SELECT MAX(temp), MIN(temp) FROM SENSOR_0001203B WHERE time > DATE_SUB(NOW(), INTERVAL 24 HOUR)";
 
 $maxResult = $conn->query($maxTemp);
 
@@ -125,21 +125,21 @@ else {
   echo "0 results";
 }
 
-function notification($id, $tempera) {
-  $subject = "Sensor " . $id . " Is Over Temperature Threshold";
+// function notification($id, $tempera) {
+//   $subject = "Sensor " . $id . " Is Over Temperature Threshold";
 
-  $message = "Sensor ". $id . " is reading a temperature of " .substr($tempera, 0,2). " degrees celsius, which exceeds the threshold set for this sensor.";
+//   $message = "Sensor ". $id . " is reading a temperature of " .substr($tempera, 0,2). " degrees celsius, which exceeds the threshold set for this sensor.";
 
   
-  $headers = 'MIME-Version: 1.0' . "\r\n";
-  $headers = 'From: Jesse Berube <berubeje@dev.fast.sheridanc.on.ca>' . "\r\n";
-  $headers .= 'Reply-To: Jesse Berube <berubeje@dev.fast.sheridanc.on.ca>' . "\r\n";
-  $headers .= 'To: <digitalmenace1@gmail.com>, <jesse@leadwave.ca>'. "\r\n";
-  $headers .= 'Content-Type: text/html; charset=ISO-8859-1'. "\r\n";
-  $headers .= 'X-Mailer: PHP/' . phpversion();
-  mail($to,$subject,$message,$headers);
+//   $headers = 'MIME-Version: 1.0' . "\r\n";
+//   $headers = 'From: Jesse Berube <berubeje@dev.fast.sheridanc.on.ca>' . "\r\n";
+//   $headers .= 'Reply-To: Jesse Berube <berubeje@dev.fast.sheridanc.on.ca>' . "\r\n";
+//   $headers .= 'To: <digitalmenace1@gmail.com>, <jesse@leadwave.ca>'. "\r\n";
+//   $headers .= 'Content-Type: text/html; charset=ISO-8859-1'. "\r\n";
+//   $headers .= 'X-Mailer: PHP/' . phpversion();
+//   mail($to,$subject,$message,$headers);
   
-}
+// }
 
 
 /*

@@ -1,8 +1,8 @@
 <?php
-$servername = "142.55.32.48";
-$username = "harquaim_php";
-$password = "c@pstone_server";
-$dbname = "harquaim_capstone";
+$servername = "107.180.27.180";
+$username = "MapleLeafAdmin";
+$password = "ClVq0Qzt21jz";
+$dbname = "Mapleleaf_Capstone";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT temp, time, uid FROM Sensor WHERE time=(SELECT MAX(time) FROM Sensor)";
+$sql = "SELECT temp, time FROM SENSOR_0001203B WHERE time=(SELECT MAX(time) FROM SENSOR_0001203B)";
 
 $result = $conn->query($sql);
 
@@ -20,8 +20,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
       // output data of each row
   while($row = $result->fetch_assoc()) {
-    $uid = $row[uid];
-    $sqlThresh = "SELECT threshold FROM TemperatureThresholds WHERE uid = '".$uid."'";
+    $uid = "0001203B";
+    $sqlThresh = "SELECT threshold FROM SENSORS WHERE uid = '".$uid."'";
     $thresh = $conn->query($sqlThresh);
     $DOUBLEtemp = doubleval($row['temp']);
     while($innerRow = $thresh->fetch_assoc()){

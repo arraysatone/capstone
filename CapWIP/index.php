@@ -68,7 +68,7 @@
         				</li>
         				<li class="nav-item">
         				    <?php
-                                include './php/checkforuser.php';
+                                //include './php/checkforuser.php';
                             ?>
         				</li>
         			</ul>

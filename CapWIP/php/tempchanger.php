@@ -1,28 +1,26 @@
 <?php
-
-$servername = "142.55.32.48";
-$username = "harquaim_php";
-$password = "c@pstone_server";
-$dbname = "harquaim_capstone";
-$temp = $_POST["temp"];
-echo $temp;
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} 
+	$servername = "107.180.27.180";
+	$username = "MapleLeafAdmin";
+	$password = "ClVq0Qzt21jz";
+	$dbname = "Mapleleaf_Capstone";
+	$temp = $_POST["temp"];
+	echo $temp;
 
 
-$sql = "UPDATE TemperatureThresholds SET threshold='".$temp."' WHERE uid='0001203B'";
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	  // Check connection
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	} 
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
 
-$conn->close();
- 
+	$sql = "UPDATE SENSORS SET threshold='".$temp."' WHERE uid='0001203B'";
+
+	if ($conn->query($sql) === TRUE) {
+	    echo "Record updated successfully";
+	} else {
+	    echo "Error updating record: " . $conn->error;
+	}
+
+	$conn->close();
 ?>

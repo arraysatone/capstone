@@ -80,40 +80,10 @@
         <!-- Cabinet List -->
     	<div class="row">
             <div class="col-lg-12">
-              <p>
-                <button uid="" type="button" class="newBtn newBtn-sq-nm bdrWhite" onclick=" window.location = 'cabinet.html'">
+              <p id="btnList">
+                <button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
                     <div class="newBtnTitle">
-                       <span class="newBtnTitleText">Cabinet 1</span>
-                    </div>
-                    <hr>
-                    <div class="newBtnDisplay">
-                        <p class="newBtnDisplayText colorSafe" id="cab2Temp">22&deg</p>
-                    </div>
-                    <div class="newBtnInfo">
-                        <table>
-                            <tr>
-                                <td class="newBtnStatus colorSafe">
-                                    <i class="fas fa-check-circle"></i>
-                                </td>
-                                <td class="newBtnText">
-                                    <span class="newBtnTempText">Safe Temperature</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="newBtnStatus colorSafe">
-                                    <i class="fas fa-check-circle"></i>
-                                </td>
-                                <td class="newBtnText">
-                                    <span class="newBtnMotionText">Movement Stable</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </button>
-
-            	<button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
-                    <div class="newBtnTitle">
-                	   <span class="newBtnTitleText">Cabinet 2</span>
+                       <span class="newBtnTitleText">Cabinet 2</span>
                     </div>
                     <hr>
                     <div class="newBtnDisplay">
@@ -139,7 +109,7 @@
                             </tr>
                         </table>
                     </div>
-            	</button>
+                </button>
 
                 <button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
                     <div class="newBtnTitle">

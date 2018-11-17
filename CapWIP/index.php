@@ -32,6 +32,7 @@
     	<link rel="stylesheet" type="text/css" href="./css/style_sm.css">
         <link rel="stylesheet" type="text/css" href="./css/style_md.css">
         <link rel="stylesheet" type="text/css" href="./css/style_lg.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <!-- Script Imports -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -67,9 +68,9 @@
         					<a class="nav-link" href="trends.html">Trends</a>
         				</li>
         				<li class="nav-item">
-        				    <?php
-                                //include './php/checkforuser.php';
-                            ?>
+        				    <!--?php
+                                include './php/checkforuser.php';
+                            ?-->
         				</li>
         			</ul>
         		</div>
@@ -80,94 +81,123 @@
     	<div class="row">
             <div class="col-lg-12">
               <p>
-                <button type="button" class="btn btn-sq-nm" id="cab1" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 1</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp" id="cab1Temp">22&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+                <button uid="" type="button" class="newBtn newBtn-sq-nm bdrWhite" onclick=" window.location = 'cabinet.html'">
+                    <div class="newBtnTitle">
+                       <span class="newBtnTitleText">Cabinet 1</span>
                     </div>
-            	</button>
-            	<button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 2</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+                    <hr>
+                    <div class="newBtnDisplay">
+                        <p class="newBtnDisplayText colorSafe" id="cab2Temp">22&deg</p>
                     </div>
-            	</button>
-            	<button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 3</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
-                    </div>
-            	</button>
-            	<button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 4</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
-                    </div>
-            	</button>
-            	<button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 5</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
-                    </div>
-            	</button>
-            	<button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                	<span class="btnTitle">Cabinet 6</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
-                    </div>
-            	</button>
-                <button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                    <span class="btnTitle">Cabinet 7</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+                    <div class="newBtnInfo">
+                        <table>
+                            <tr>
+                                <td class="newBtnStatus colorSafe">
+                                    <i class="fas fa-check-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnTempText">Safe Temperature</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="newBtnStatus colorSafe">
+                                    <i class="fas fa-check-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnMotionText">Movement Stable</span>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </button>
-                <button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                    <span class="btnTitle">Cabinet 8</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+
+            	<button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
+                    <div class="newBtnTitle">
+                	   <span class="newBtnTitleText">Cabinet 2</span>
+                    </div>
+                    <hr>
+                    <div class="newBtnDisplay">
+                        <p class="newBtnDisplayText colorSafe" id="cab2Temp">26&deg</p>
+                    </div>
+                    <div class="newBtnInfo">
+                        <table>
+                            <tr>
+                                <td class="newBtnStatus colorSafe">
+                                    <i class="fas fa-check-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnTempText">Safe Temperature</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="newBtnStatus colorUnsafe">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnMotionText">Movement Unstable</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+            	</button>
+
+                <button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
+                    <div class="newBtnTitle">
+                       <span class="newBtnTitleText">Cabinet 3</span>
+                    </div>
+                    <hr>
+                    <div class="newBtnDisplay">
+                        <p class="newBtnDisplayText colorUnsafe" id="cab2Temp">28&deg</p>
+                    </div>
+                    <div class="newBtnInfo">
+                        <table>
+                            <tr>
+                                <td class="newBtnStatus colorUnsafe">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnTempText">Unsafe Temperature</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="newBtnStatus colorSafe">
+                                    <i class="fas fa-check-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnMotionText">Movement Stable</span>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </button>
-                <button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                    <span class="btnTitle">Cabinet 9</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+
+                <button uid="" type="button" class="newBtn newBtn-sq-nm bdrRed" onclick=" window.location = 'cabinet.html'">
+                    <div class="newBtnTitle">
+                       <span class="newBtnTitleText">Cabinet 4</span>
                     </div>
-                </button>
-                <button type="button" class="btn btn-sq-nm" onclick=" window.location = 'cabinet.html'">
-                    <span class="btnTitle">Cabinet 10</span>
-                    <br>
-                    <div class="btnData">
-                        <span class="btnTemp">--&degC</span>
-                        <br>
-                        <span class="btnMotion">No Movement Detected</span>
+                    <hr>
+                    <div class="newBtnDisplay">
+                        <p class="newBtnDisplayText colorUnsafe" id="cab2Temp">28&deg</p>
+                    </div>
+                    <div class="newBtnInfo">
+                        <table>
+                            <tr>
+                                <td class="newBtnStatus colorUnsafe">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnTempText">Unsafe Temperature</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="newBtnStatus colorUnsafe">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </td>
+                                <td class="newBtnText">
+                                    <span class="newBtnMotionText">Movement Unstable</span>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </button>
               </p>

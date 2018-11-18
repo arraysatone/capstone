@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
 
 // require '/home/berubeje/public_html/Notification/PHPMailer/src/Exception.php';
 // require '/home/berubeje/public_html/Notification/PHPMailer/src/PHPMailer.php';
 // require '/home/berubeje/public_html/Notification/PHPMailer/src/SMTP.php';
-
+$uid = $_SESSION['uid'];
 
 $servername = "107.180.27.180";
 $username = "MapleLeafAdmin";
@@ -21,7 +21,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT temp, time FROM SENSOR_0001203B WHERE time=(SELECT MAX(time) FROM SENSOR_0001203B)";
+$sql = "SELECT temp, time FROM SENSOR_$uid WHERE time=(SELECT MAX(time) FROM SENSOR_$uid)";
 
 $result = $conn->query($sql);
 
@@ -29,7 +29,6 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
       // output data of each row
   while($row = $result->fetch_assoc()) {
-    $uid = "0001203B";
     $sqlThresh = "SELECT threshold FROM SENSORS WHERE uid = '".$uid."'";
     $thresh = $conn->query($sqlThresh);
     $DOUBLEtemp = doubleval($row['temp']);
@@ -57,7 +56,7 @@ if ($result->num_rows > 0) {
     		 	if($difference > $delay)
     		 	{
     		 		//Send the notifiation and updated the lastemail column in the database
-    		 	    notification($uid, $DOUBLEtemp);
+    		 	  notification($uid, $DOUBLEtemp);
     		 		$currentTime = date("Y-m-d H:i:s");
     		 		$insert = "UPDATE EMAIL_NOTIF SET lastEmail = '".$currentTime."' WHERE uid = '".$uid."'";
     		 		$runInsert = $conn->query($insert);		
@@ -89,7 +88,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$maxTemp = "SELECT MAX(temp), MIN(temp) FROM SENSOR_0001203B WHERE time > DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+$maxTemp = "SELECT MAX(temp), MIN(temp) FROM SENSOR_$uid WHERE time > DATE_SUB(NOW(), INTERVAL 24 HOUR)";
 
 $maxResult = $conn->query($maxTemp);
 

@@ -62,10 +62,7 @@
         					<a class="nav-link" href="#">Cabinet<span class="sr-only">(current)</span></a>
         				</li>
         				<li class="nav-item">
-        					<a class="nav-link" href="cabinet.html">Live View</a>
-        				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="trends.html">Trends</a>
+        					<a class="nav-link" href="cabinet.php">Live View</a>
         				</li>
         				<li class="nav-item">
         				    <!--?php

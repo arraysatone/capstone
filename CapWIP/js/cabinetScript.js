@@ -1,4 +1,10 @@
-setInterval(function(){
+window.onload = function(){
+    updateTemp();
+    updateMove();
+    liveUpdates();
+};
+
+function updateTemp(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -10,9 +16,9 @@ setInterval(function(){
         };
         xmlhttp.open("GET", "./php/temp_select.php", true);
         xmlhttp.send();
-},1000);
+}
 
-setInterval(function(){
+function updateMove(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -21,4 +27,11 @@ setInterval(function(){
         };
         xmlhttp.open("GET", "./php/accel_select.php", true);
         xmlhttp.send();
-},1000);
+}
+
+function liveUpdates(){
+    setInterval(function(){
+        updateTemp();
+        updateMove();
+    },1000);
+}

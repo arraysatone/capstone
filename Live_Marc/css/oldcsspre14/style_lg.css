@@ -1,0 +1,89 @@
+/*
+*	ArraysAtOne Capstone 2018 - Maple Leaf Foods
+*
+*	Kevin Baumgartner
+*	Jesse Berube
+*	Marc Harquail
+*	Alex Ireland
+*
+*/
+
+/* Rotated Tablet Media Queries */
+@media only screen and (min-width: 1024px) {
+
+	/* Navigation Bar */
+	#navbar-image{
+		width: 5vw;
+		height: auto;
+		margin: 1%;
+	}
+
+	.navbar-toggler{
+		background-color: #4D5C68 !important;
+		margin: 1%;
+	}
+
+	.nav-item{
+		margin: 30px 15px 30px 15px;
+	}
+
+	.nav-link{
+		margin: 0;
+		padding: 0;
+		border-bottom: 0px solid transparent;
+	}
+
+	/* Column Listings */
+	.col-lg-12{
+		margin-top: 4%;
+	}
+	
+	/* Button CSS */
+	.btn{
+		width: 30%;
+	  	height: 22vw;
+	  	float: left;
+	  	margin: 2% 0% 2% 2.45%;
+	  	border-radius: 6px;
+	  	font-size: 3vw;
+	  	border: 0px solid transparent;
+	}
+
+	/* Button Extra Styling */
+	.btnData{
+		color: #121212;
+		border-radius: 6px;
+		margin: 3% 0% 0% 0%;
+		padding: 3% 0% 2% 0%;
+	}
+
+	.btnTable{
+		width: 100%;
+		height: 100%;
+	}
+
+	.btnTitle{
+		text-transform: uppercase;
+		text-align: center;
+		width: 30%;
+		padding: 5% 0% 2% 0%;
+		font-size: 3vw;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	.btnTemp{
+		text-align: center;
+		width: 50%;
+		font-size: 4vw;
+		padding: 0;
+		margin: 0;
+		letter-spacing: 0px;
+	}
+
+	.btnMotion{
+		text-align: center;
+		width: 50%;
+		font-size: 2.5vw;
+	}
+}

@@ -126,7 +126,23 @@ else {
 }
 
  function notification($id, $tempera) {
-   $subject = "Sensor " . $id . " Is Over Temperature Threshold";
+	emailNotificiation($id, $tempera);
+    webNotification($id, $tempera);
+ }
+ 
+ function webNotification($id, $tempera)
+ {
+	 echo "
+		<script type='text/javascript'>
+                alert('JavaScript is awesome!');
+        </script>";
+	 "
+ }
+ 
+ 
+ function emailNotificiation($id, $tempera)
+ {
+	$subject = "Sensor " . $id . " Is Over Temperature Threshold";
 
    $message = "Sensor ". $id . " is reading a temperature of " .substr($tempera, 0,2). " degrees celsius, which exceeds the threshold set for this sensor.";
 
@@ -138,39 +154,10 @@ else {
    $headers .= 'Content-Type: text/html; charset=ISO-8859-1'. "\r\n";
    $headers .= 'X-Mailer: PHP/' . phpversion();
    mail($to,$subject,$message,$headers);
-  
  }
 
 
-/*
-function notification($id, $tempera) {
 
-	
-	$mail = new PHPMailer(); // create a new object
-	$mail->IsSMTP(); // enable SMTP
-	$mail->CharSet = 'UTF-8';
-	$mail->SMTPDebug = 4; // debugging: 1 = errors and messages, 2 = messages only
-	$mail->SMTPAuth = true; // authentication enabled
-	$mail->Port = 587;
-	$mail->Host = 'mail.berubeje.dev.fast.sheridanc.on.ca';
-	$mail->IsHTML(true);
-	$mail->Username = "_mainaccount@berubeje.dev.fast.sheridanc.on.ca";
-	$mail->Password = "eL#*#OA91k)k";
-	$mail->SetFrom("donotreply@berubeje.dev.fast.sheridanc.on.ca", "Jesse Berube");
-	$mail->Subject = "Hello Jesse";
-	$mail->Body = "This is a test email to test PHP mailer";
-	$mail->AddAddress("jesse@leadwave.ca", "Jesse Berube");
-	$mail->AddAddress("capstoneJB@outlook.com", "Jesse Berube");
-	$mail->AddCC('digitalmenace1@gmail.com', 'Person One');
-
-	if(!$mail->Send()) {
-		echo "Mailer Error: " . $mail->ErrorInfo;
-	} else {
-		echo "Message has been sent";
-	}
-
-}
-*/
 
 $conn->close();
 

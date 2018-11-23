@@ -378,3 +378,22 @@ input::-webkit-inner-spin-button {
 input[type='number'] { /* Firefox */
     -moz-appearance:textfield;
 }
+
+.datePicker{
+	border-radius: 6px;
+	margin: 0;
+	padding: 2%;
+	border: 0px solid transparent;
+}
+
+.datePickerTitle{
+	margin: 0;
+	padding: 0;
+	color: #FAFAFA;
+	font-weight: bold;
+}
+
+.betweenPicker table tr td{
+	padding: 0;
+	margin: 0;
+}

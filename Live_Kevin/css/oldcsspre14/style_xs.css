@@ -16,7 +16,6 @@ html, body {
     background-color: #FAFAFA;
     font-family: Helvetica, Verdana, sans-serif;
     background-color: #4D5C68;
-    /*background-color: #C9C9C9;*/
 }
 
 /* Navigation Bar */
@@ -47,12 +46,12 @@ html, body {
 
 /* Column Listings */
 .col-lg-12{
-	margin-top: 2%;
+	margin-top: 5%;
 }
 
 /* Data Text Edits */
 .temp{
-	margin-top: 0%;
+	margin-top: 5%;
 	font-size: 200%;
 	text-align: center;
 	font-weight: bold;
@@ -81,7 +80,7 @@ html, body {
 /* History and Trends */
 .hist{
 	font-size: 200%;
-	margin-bottom: 3%;
+	margin-bottom: 5%;
 	font-weight: bold;
 	color: white;
 }
@@ -121,6 +120,25 @@ html, body {
 	color: white;
 }
 
+/* Button CSS */
+.btn{
+	width: 40%;
+  	height: 25vw;
+  	float: left;
+  	margin: 4% 0% 4% 6.6%;
+  	border-radius: 6px;
+  	font-size: 3vw;
+  	border: 0px solid transparent;
+}
+
+.btn:hover{
+	background-color: ;
+}
+
+.btn th{
+	font-weight: 100;
+}
+
 /* Button Colour Classifications */
 
 /* RED ALERT */
@@ -151,6 +169,43 @@ html, body {
 
 .btn-sq-nm .btnData{
 	background-color: #E5EFFF;
+}
+
+/* Button Extra Styling */
+.btnData{
+	color: #121212;
+	border-radius: 6px;
+	margin: 3% 0% 0% 0%;
+	padding: 6% 0% 6% 0%;
+}
+
+.btnTable{
+	width: 100%;
+	height: 100%;
+}
+
+.btnTitle{
+	text-transform: uppercase;
+	text-align: center;
+	width: 30%;
+	padding: 5% 0% 2% 0%;
+	font-size: 4vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.btnTemp{
+	text-align: center;
+	width: 50%;
+	font-size: 5vw;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 0px;
+}
+
+.btnMotion{
+	text-align: center;
+	width: 50%;
 }
 
 .loginDiv{
@@ -256,246 +311,3 @@ html, body {
   	color: white;
   	display: inline-block;
 }
-
-/* NEW BUTTON STYLING */
-.newBtn{
-	width: 45%;
-  	height: 30vw;
-  	float: left;
-  	margin: 4% 0% 4% 3.3%;
-  	border-radius: 6px;
-  	font-size: 3vw;
-  	color: #121212;
-  	padding: 15px;
-  	cursor: pointer;
-}
-
-.newBtn-sq-nm {
-  background-color: #FAFAFA;
-  color: #121212;
-}
-
-.newBtnTitle{
-	margin: 0;
-	padding: 0;
-	font-size: 1em;
-	text-transform: uppercase;
-	text-align: left;
-}
-
-.newBtn hr{
-	margin: 0;
-	padding: 0;
-	border: 0.5px solid #121212;
-}
-
-.newBtnDisplay{
-	margin: 0;
-	padding-top: 5px;
-	font-size: 2em;
-	width: 100%;
-	height: auto;
-	display: inline-block;
-}
-
-.newBtnDisplayText{
-	margin: 0;
-	padding: 0;
-}
-
-.newBtn p{
-	margin: 0 !important;
-	padding: 0 !important;
-}
-
-.newBtnInfo{
-	margin: 0;
-	padding: 0;
-	font-weight: 100;
-	text-align: left;
-}
-
-.newBtn table{
-	margin: 0;
-	padding: 0;
-}
-
-.newBtn tr{
-	margin: 0;
-	padding: 0;
-}
-
-.newBtn td{
-	margin: 0;
-	padding: 0;
-}
-
-.newBtnStatus{
-	margin: 0;
-	padding: 0;
-}
-
-.newBtnText{
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-
-.newBtnTempText{
-	margin: 0;
-	padding: 0;
-	margin-left: 5%;
-}
-
-.newBtnMotionText{
-	margin: 0;
-	padding: 0;
-	margin-left: 5%;
-}
-
-.colorSafe{
-	color: #33cc33 !important;
-}
-
-.colorUnsafe{
-	color: #d90027 !important;
-}
-
-.bdrWhite{
-	border: 6px solid #FAFAFA !important;
-}
-
-.bdrRed{
-	border: 6px solid #d90027 !important;
-}
-/* Disable Number spinners */
-input::-webkit-outer-spin-button, /*Safari and Chrome */
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-input[type='number'] { /* Firefox */
-    -moz-appearance:textfield;
-}
-
-.datePicker{
-	border-radius: 6px;
-	margin: 0;
-	padding: 4%;
-	border: 0px solid transparent;
-	font-size: 25px;
-}
-
-.datePickerTitle{
-	margin: 2% 0%;
-	padding: 0;
-	color: #FAFAFA;
-	font-weight: bold;
-	font-size: 25px;
-}
-
-.betweenPicker{
-	margin: 5% 0%;
-}
-
-.betweenPicker table tr td{
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
-
-.submitArea{
-	text-align: center;
-	width: 100%;
-	padding: 0;
-	margin: 2% 0%;
-}
-
-.datePickerButton{
-	border-radius: 6px;
-	border: 0px solid transparent;
-	background-color: #FAFAFA;
-	font-size: 25px;
-	margin: auto;
-}
-
-.cabinetName{
-	text-align: center;
-	margin-top: 2%;
-	color: #FAFAFA;
-	font-weight: bold;
-	font-size: 25px;
-	width: 90% !important;
-}
-
-.eventTable{
-	border: 2px solid white;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-.eventRow{
-	border: 2px solid white;
-}
-
-.eventHeader{
-	text-align: center;
-	font-weight: bold;
-	color: white;
-	border: 2px solid white;
-	padding: 2%;
-	width: 25%;
-}
-
-.eventData{
-	text-align: center;
-	border: 2px solid white;
-	color: white;
-	padding: 2%;
-}
-
-.colorSubbed{
-	color: #CEDC3D !important;
-}
-
-.colorUnsubbed{
-	color: #72736F !important;
-}
-
-.optBtns{
-	margin-top: 0%;
-}
-
-.subBtn{
-	text-align: center;
-	margin: 0% 0% 3% 0%;
-	padding: 0%;
-	width: 5% !important;
-}
-
-.setBtn{
-	text-align: center;
-	margin: 0% 0% 3% 0%;
-	padding: 0%;
-	width: 5% !important;
-}
-
-#trendsBtn{
-	padding: 3%;
-	font-size: 150%;
-	width: 30%;
-}
-
-#subscribe{
-	padding: 3%;
-	font-size: 150%;
-	width: 30%;
-}
-
-#settings{
-	padding: 3%;
-	font-size: 150%;
-	width: 30%;
-}
-

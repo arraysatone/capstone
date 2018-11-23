@@ -71,8 +71,25 @@
             </div>
     	</nav>
 
+    	<div class="row">
+            <div class = "col cabinetName"><?php include 'php/getCabinetName.php'?></div>
+        </div>
+
     	<!-- Chart Displays-->
 		<div class="col-lg-12">
+
+			<div class="betweenPicker">
+				<table>
+					<tr>
+						<td><h2 class="datePickerTitle">Start:</h2></td>
+						<td><h2 class="datePickerTitle">End:</h2></td>
+					</tr>
+					<tr>
+						<td><input id="recTempBefore" class="datePicker" type="date" name="bday"></td>
+						<td><input id="redTempAfter" class="datePicker" type="date" name="bday"></td>
+					</tr>
+				</table>
+			</div>
 
 	    	<!-- Recent Temperatures -->
 			<div class="row">

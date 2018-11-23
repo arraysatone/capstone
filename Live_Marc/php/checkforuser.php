@@ -29,7 +29,16 @@ if(isset($_COOKIE['LoginKey'])) {
 		    // output data of each row
 		        while($row = $result->fetch_assoc()) {
 		            $user = $row['Username'];
-		            echo '<div id="loginUID"><a class="nav-link" href="#">'.$user.'</a></div>';
+		            echo '<li class="nav-item">
+			            		<div id="loginUID">
+			            			<a class="nav-link" href="userSettings">'.$user.'\'s settings</a>
+			            		</div>
+			            	</li>
+			            	<li class="nav-item">
+			            		<div id="logoutUID">
+			            			<a class="nav-link" href="./php/logout">Logout</a>
+			            		</div>
+		            		</li>';
 		            $loggedin = true;
 		        }
 			}
@@ -52,7 +61,16 @@ if(isset($_COOKIE['LoginKey'])) {
 		    // output data of each row
 		        while($row = $result->fetch_assoc()) {
 		            $user = $row['Username'];
-		            echo '<div id="loginUID"><a class="nav-link" href="#">'.$user.'</a></div>';
+		            echo '<li class="nav-item">
+			            		<div id="loginUID">
+			            			<a class="nav-link" href="userSettings">'.$user.'\'s settings</a>
+			            		</div>
+			            	</li>
+			            	<li class="nav-item">
+			            		<div id="logoutUID">
+			            			<a class="nav-link" href="./php/logout">Logout</a>
+			            		</div>
+		            		</li>';
 		            $loggedin = true;
 		        }
 			}

@@ -24,7 +24,7 @@
 		while($row = $result->fetch_assoc()) {
 			$uid = $row['uid'];
 			$sensorThresh = doubleval($row['threshold']);
-			$sqlTemp = "SELECT temp, movement, time FROM SENSOR_$uid WHERE time=(SELECT MAX(time) FROM SENSOR_$uid)";
+			$sqlTemp = "SELECT `temp`, `movement`, `time` FROM SENSOR_$uid WHERE `time`=(SELECT MAX(`time`) FROM SENSOR_$uid)";
 			$sensorData = $conn->query($sqlTemp);
 			$curtime = time();
 			if($sensorData->num_rows > 0){
@@ -33,14 +33,14 @@
 					$sensorMovement = $innerRow['movement'];
 					$sensorTime = $innerRow['time'];
 					if($sensorTemp >= $sensorThresh){
-						if($sensorMovement && (($curtime - $time) <= 10)){
+						if($sensorMovement && (($curtime - $sensorTime) <= 10)){
 							$status = 4;
 						}
 						else{
 							$status = 2;
 						}
 					}
-					elseif($sensorMovement && (($curtime - $time) <= 10)){
+					elseif($sensorMovement && (($curtime - $sensorTime) <= 10)){
 						$status = 3;
 					}
 					else{

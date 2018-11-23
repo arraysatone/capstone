@@ -19,7 +19,7 @@
 
     <!-- Head -->
     <head>
-
+        <?php include 'bodyguard.php' ?>
         <!-- Meta -->
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,9 +66,9 @@
         					<a class="nav-link" href="cabinet.php">Live View</a>
         				</li>
         				<li class="nav-item">
-        				    <!--?php
+        				    <?php
                                 include './php/checkforuser.php';
-                            ?-->
+                            ?>
         				</li>
         			</ul>
         		</div>

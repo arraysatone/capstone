@@ -130,3 +130,7 @@ function updateTable(){
 function settingsClicked(uid){
     window.location = 'settings.php?uid=' + uid;
 }
+
+function trendsClicked(uid){
+    window.location = 'trends.php?uid=' + uid;
+}

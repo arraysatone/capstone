@@ -69,14 +69,9 @@
         					<a class="nav-link" href="#">Live View</a>
         				</li>
         				<li class="nav-item">
-        					<a class="nav-link" href="trends?uid=<?php include 'php/set_GET_uid.php' ?>">Trends</a>
+        					<a class="nav-link" href="trends?uid=<?php include 'php/set_GET_uid.php' ?>">Trends for <?php include 'php/getCabinetName.php'?></a>
         				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="settings?uid=<?php include 'php/set_GET_uid.php' ?>">Settings</a>
-        				</li>
-        				<li class="nav-item">
-        				    <?php  include './php/checkforuser.php' ?>
-        				</li>
+        				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>
             </div>
@@ -86,14 +81,6 @@
     	<div class="row">
     		<div class = "col cabinetName"><?php include 'php/getCabinetName.php'?></div>
     	</div>
-    	<div class="row optBtns">
-			<div class="col subBtn">
-				<button class="fa fa-star colorUnsubbed" onclick = "subUser()" id="subscribe"></button>
-			</div>
-			<div class="col setBtn float-right">
-				<button class="fa fa-cog colorUnsubbed" onclick = "settingsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="settings"></button>
-			</div>
-		</div>
     	<!-- Primary Temperature -->
 		<div class="row">
 			<div class="col block hist" style="text-align: center;" id="temp">
@@ -130,7 +117,17 @@
 		<div class="row">
 			<div class="col disclaim histInfo">*LAST 24 HOURS</div>
 		</div>
-
+    	<div class="row optBtns">
+			<div class="col subBtn">
+				<button class="fas fa-star colorUnsubbed" onclick = "subUser()" id="subscribe"></button>
+			</div>
+			<div class="col setBtn float-right">
+				<button class="fas fa-chart-area colorUnsubbed" onclick = "trendsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="trendsBtn"></button>
+			</div>
+			<div class="col setBtn float-right">
+				<button class="fas fa-cog colorUnsubbed" onclick = "settingsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="settings"></button>
+			</div>
+		</div>
 		<div class="row">
 			<table class = "col eventTable">
 				<tr class = "eventRow">

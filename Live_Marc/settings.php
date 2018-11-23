@@ -82,11 +82,11 @@
                 <!-- Dropdown Items -->
         		<div class="collapse navbar-collapse" id="navbarNav">
         			<ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cabinet?uid=<?php echo $_GET['uid'] ?>">Live View</a>
+                        </li>
         				<li class="nav-item active">
-        					<a class="nav-link" href="#">Cabinet<span class="sr-only">(current)</span></a>
-        				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="cabinet?uid=<?php echo $_GET['uid'] ?>">Live View</a>
+        					<a class="nav-link" href="#">Settings<span class="sr-only">(current)</span></a>
         				</li>
         				<li class="nav-item">
         				    <?php  include './php/checkforuser.php' ?>

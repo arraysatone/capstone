@@ -4,7 +4,7 @@ session_start();
   $username = "MapleLeafAdmin";
   $password = "ClVq0Qzt21jz";
   $dbname = "Mapleleaf_Capstone";
-$uid = $_SESSION['uid'];
+  $uid = $_SESSION['uid'];
 
 
   $conn = new mysqli($servername, $username, $password, $dbname);

@@ -399,9 +399,9 @@ input[type='number'] { /* Firefox */
 .cabinetName{
 	text-align: center;
 	margin-top: 2%;
-	color: white;
+	color: #212529;
 	font-weight: bold;
-	font-size: 200%;
+	font-size: 150%;
 	width: 90% !important;
 }
 
@@ -444,17 +444,23 @@ input[type='number'] { /* Firefox */
 }
 
 .subBtn{
-	text-align: left;
-	margin: 2% 0% 0% 8%;
+	text-align: center;
+	margin: 0% 0% 3% 0%;
 	padding: 0%;
 	width: 5% !important;
 }
 
 .setBtn{
-	text-align: right;
-	margin: 2% 8% 0% 0%;
+	text-align: center;
+	margin: 0% 0% 3% 0%;
 	padding: 0%;
 	width: 5% !important;
+}
+
+#trendsBtn{
+	padding: 3%;
+	font-size: 150%;
+	width: 30%;
 }
 
 #subscribe{

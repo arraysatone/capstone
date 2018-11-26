@@ -132,11 +132,7 @@ else {
  
  function webNotification($id, $tempera)
  {
-	 echo "
-		<script type='text/javascript'>
-                alert('JavaScript is awesome!');
-        </script>";
-	 "
+
  }
  
  

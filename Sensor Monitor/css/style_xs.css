@@ -313,6 +313,12 @@ html, body {
 	margin-left: 5%;
 }
 
+.newBtnVoltText{
+	margin: 0;
+	padding: 0;
+	margin-left: 5%;
+}
+
 .newBtnTitleFav{
 	float: right;
 }

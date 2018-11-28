@@ -1,0 +1,28 @@
+<html>
+<head>
+        <!-- Script Imports -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+</head>
+<body>
+	<button onclick='touch()'>TOOOOOOOOOUCH</button>
+</body>
+</html>
+
+<script>
+function touch(){
+$.ajax
+({
+	type:'post',
+	url:'../php/server_page.php',
+	data:{
+		uid:'0001203C',
+		temp:'25',
+		move:0
+		},
+		success:function(response) {
+			alert(response);
+		}
+});
+}
+</script>

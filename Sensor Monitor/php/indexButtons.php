@@ -64,6 +64,14 @@
 	                            <span class="newBtnMotionText">Movement Stable</span>
 	                        </td>
 	                    </tr>
+	                    <tr>
+	                        <td class="newBtnStatus btnVoltStatus colorSafe">
+	                        	<i class="fas fa-check-circle btnVoltSymbol"></i>
+	                        </td>
+	                        <td class="newBtnText">
+	                            <span class="newBtnVoltText">Voltage Stable</span>
+	                        </td>
+	                    </tr>
 	                </table>
 	            </div>
           	</button>';

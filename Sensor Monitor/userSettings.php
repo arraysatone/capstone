@@ -106,18 +106,10 @@
                 <!-- Dropdown Items -->
         		<div class="collapse navbar-collapse" id="navbarNav">
         			<ul class="navbar-nav">
-        				<li class="nav-item active">
-        					<a class="nav-link" href="#">Live View</a>
-        				</li>
         				<li class="nav-item">
-        					<a class="nav-link" href="trends?uid=<?php include 'php/set_GET_uid.php' ?>">Trends</a>
+        					<a class="nav-link" href="/">Home</a>
         				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="settings?uid=<?php include 'php/set_GET_uid.php' ?>">Settings</a>
-        				</li>
-        				<li class="nav-item">
-        				    <?php  include './php/checkforuser.php' ?>
-        				</li>
+        				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>
             </div>

@@ -130,14 +130,10 @@
 			<div class="col disclaim histInfo">*LAST 24 HOURS</div>
 		</div>
     	<div class="row optBtns">
-			<div class="col subBtn">
-				<button class="fas fa-star colorUnsubbed" onclick = "subUser()" id="subscribe"></button>
-			</div>
-			<div class="col setBtn float-right">
-				<button class="fas fa-chart-area colorUnsubbed" onclick = "trendsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="trendsBtn"></button>
-			</div>
-			<div class="col setBtn float-right">
-				<button class="fas fa-cog colorUnsubbed" onclick = "settingsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="settings"></button>
+			<div class="col btnBox">
+				<button class="fas fa-star btnBoxItem colorUnsubbed" onclick = "subUser()" id="subscribe"></button>
+				<button class="fas fa-chart-area btnBoxItem" onclick = "trendsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="trendsBtn"></button>
+				<button class="fas fa-cog btnBoxItem" onclick = "settingsClicked('<?php include 'php/set_GET_uid.php' ?>')" id="settings"></button>
 			</div>
 		</div>
 		<div class="row">

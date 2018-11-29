@@ -27,11 +27,11 @@
 	  die("Connection failed: " . $conn->connect_error);
 	}
 
-	$uid = $_POST["uid"];
-	$name = $_POST["name"];
+	$uid = $_GET['uid'];
+	$name = $_GET['name'];
 	
-	$sql = $conn->prepare('UPDATE CABINETS SET cabinetName = ? WHERE cabinetName = (SELECT cabinetName FROM LOCATION_SENSORS WHERE uid = '.$uid.')');
-	$sql->bind_Param("ssss", $name);
+	$sql = $conn->prepare('UPDATE CABINETS SET cabinetName = ? WHERE cabinetName = (SELECT cabinetName FROM LOCATION_SENSORS WHERE uid = "'.$uid.'")');
+	$sql->bind_Param("s", $name);
 
 	if ($sql->execute() === TRUE) {
 		echo "Record updated successfully";

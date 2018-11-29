@@ -27,10 +27,10 @@ function updateTemp(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("temp").innerHTML = this.responseText.substring(0,36);
-            document.getElementById("time").innerHTML = this.responseText.substring(36,41);
-            document.getElementById("maxTemp").innerHTML = this.responseText.substring(41,135);
-            document.getElementById("minTemp").innerHTML = this.responseText.substring(135,229);
+            document.getElementById("temp").innerHTML = this.responseText.substring(0,35);
+            document.getElementById("time").innerHTML = this.responseText.substring(35,40);
+            document.getElementById("maxTemp").innerHTML = this.responseText.substring(40,134);
+            document.getElementById("minTemp").innerHTML = this.responseText.substring(134,228);
         }
         };
         xmlhttp.open("GET", "./php/temp_select.php", true);

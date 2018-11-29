@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
     }
     $temp = $row['temp'];
     $time = $row['time'];
-    echo "<p class='temp text". $color ."'>". substr($temp, 0,2). " &degC</p>";
+    echo "<p class='temp text". $color ."'>". substr($temp, 0,2). "&degC</p>";
     echo substr($time,11,5);
   }
 }

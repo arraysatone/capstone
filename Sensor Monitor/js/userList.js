@@ -19,6 +19,7 @@
 	{
 		
 		document.getElementById("statusVal"+id).disabled = false;
+
 		var firstName = document.getElementById("firstNameVal"+id).innerHTML;
 		var lastName = document.getElementById("lastNameVal"+id).innerHTML;
 		var username = document.getElementById("usernameVal"+id).innerHTML;
@@ -29,7 +30,8 @@
 		
 		
 		document.getElementById("editButton"+id).style.display="none";
-		document.getElementById("saveButton"+id).style.display="unset";
+		document.getElementById("saveButton"+id).style.display="block";
+		document.getElementById("deleteButton"+id).style.display="block";
 	}
 
 	function save(id)
@@ -70,8 +72,10 @@
 					document.getElementById("statusVal"+id).innerHTML=status;
 				
 					
-					document.getElementById("editButton"+id).style.display="unset";
+					document.getElementById("editButton"+id).style.display="block";
 					document.getElementById("saveButton"+id).style.display="none";
+					document.getElementById("deleteButton"+id).style.display="none";
+
 				}else{
 				alert(response);
 				}

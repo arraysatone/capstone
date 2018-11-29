@@ -24,14 +24,14 @@
 		var lastName = document.getElementById("lastNameVal"+id).innerHTML;
 		var username = document.getElementById("usernameVal"+id).innerHTML;
 		
-		document.getElementById("firstNameVal"+id).innerHTML="<input type='text' id='firstNameInput"+id+"' value='"+firstName+"'>";
-		document.getElementById("lastNameVal"+id).innerHTML="<input type='text' id='lastNameInput"+id+"' value='"+lastName+"'>";
-		document.getElementById("usernameVal"+id).innerHTML="<input type='text' id='usernameInput"+id+"' value='"+username+"'>";
+		document.getElementById("firstNameVal"+id).innerHTML="<input type='text' class='userEditField' id='firstNameInput"+id+"' value='"+firstName+"'>";
+		document.getElementById("lastNameVal"+id).innerHTML="<input type='text' class='userEditField' id='lastNameInput"+id+"' value='"+lastName+"'>";
+		document.getElementById("usernameVal"+id).innerHTML="<input type='text' class='userEditField' id='usernameInput"+id+"' value='"+username+"'>";
 		
 		
 		document.getElementById("editButton"+id).style.display="none";
-		document.getElementById("saveButton"+id).style.display="block";
-		document.getElementById("deleteButton"+id).style.display="block";
+		document.getElementById("saveButton"+id).style.display="inline";
+		document.getElementById("deleteButton"+id).style.display="inline";
 	}
 
 	function save(id)
@@ -72,7 +72,7 @@
 					document.getElementById("statusVal"+id).innerHTML=status;
 				
 					
-					document.getElementById("editButton"+id).style.display="block";
+					document.getElementById("editButton"+id).style.display="inline";
 					document.getElementById("saveButton"+id).style.display="none";
 					document.getElementById("deleteButton"+id).style.display="none";
 

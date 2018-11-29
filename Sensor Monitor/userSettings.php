@@ -14,8 +14,10 @@
         Jesse Berube
         Marc Harquail
         Alex Ireland
+
         - - - - - - - - - - - - - - - - - - - - - - -
-		login.php
+
+		userSettings.php
         Jesse Berube
         Marc Harquail
  -->
@@ -27,6 +29,7 @@
 
 	<!-- Head -->
 	<head>
+		<?php include 'bodyguard.php' ?>
 
 		<!-- Meta -->
 		<meta charset="utf-8">
@@ -47,34 +50,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 		<script src="./js/userList.js"></script>
-		<style>
-			table,tr,th,td
-			{
-				border: 2px solid white;
-				color: white;
-				user-select: none; 
-				-moz-user-select: none; 
-				-khtml-user-select: none;
-				onselectstart="javascript:return false;
-			}
-			form{
-				width: 96%;
-				margin-top: 2%;
-				margin-left: 2%;
-				margin-right: 2%;
-			}
-			table
-			{
-				width: 96%;
-				margin-top: 2%;
-				margin-left: 2%;
-				margin-right: 2%;
-			}
-			#feedback
-			{
-				display:none;
-			}
-		</style>
 	</head>
 
 	<!-- Body -->
@@ -109,7 +84,8 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Username</th>
-				<th>Is Admin</th>
+				<th>is Admin</th>
+				<th><input type="button" id="add" class="login buttons fas fa-user-plus" value="&#xf234" onclick="window.location='./registrar'"></th>
 			</tr>
 		<?php			
 		$sql = "SELECT ID, FirstName, LastName, Username, IsAdmin FROM UserTable";
@@ -126,10 +102,9 @@
 				<td id="usernameVal<?php echo $row['ID'];?>"><?php echo $row['Username'];?></td>
 				<td><input disabled type="checkbox" id="statusVal<?php echo $row['ID'];?>" value="1" <?php echo ($row['IsAdmin']==1 ? 'checked' : '');?>></td>
 				<td>
-				<input type='button' class="editButton" id="editButton<?php echo $row['ID'];?>" value="Edit" onclick="edit('<?php echo $row['ID'];?>');">
-				<input type='button' style="display:none" class="deleteButton" id="deleteButton<?php echo $row['ID'];?>" value="Delete" onclick="deleteR('<?php echo $row['ID'];?>');">
-				<input type='button' style="display:none" class="saveButton" id="saveButton<?php echo $row['ID'];?>" value="Save" onclick="save('<?php echo $row['ID'];?>');">
-				
+				<input type='button' class="editButton fas fa-edit" id="editButton<?php echo $row['ID'];?>" value='&#xf044' onclick="edit('<?php echo $row['ID'];?>');">
+				<input type='button' style="display:none" class="editButton fas fa-edit" id="saveButton<?php echo $row['ID'];?>" value="&#xf0c7" onclick="save('<?php echo $row['ID'];?>');">
+				<input type='button' style="display:none" class="editButton fas fa-trash-alt" id="deleteButton<?php echo $row['ID'];?>" value="&#xf2ed" onclick="deleteR('<?php echo $row['ID'];?>');">
 				</td>
 			</tr>
 		<?php
@@ -147,11 +122,6 @@
 			</tr>
 		-->
 		</table>
-    	<br>
-    	<form>
-    		<input type="button" id="add" class="login buttons" value="New User">
-    	</form>
     </div>
-    <div id = "feedback">Database Successfully Updated</div>
 	</body>
 </html>

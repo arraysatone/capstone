@@ -41,29 +41,6 @@ function save(uid){
         };
         xmlhttp.open("GET", "./php/updateCabinetName.php?uid=" + uid + "&name=" + cabName, true);
         xmlhttp.send();
-
-    // $.ajax
-    //     ({
-    //         type:'post',
-    //         url:'./php/updateCabinetName.php',
-    //         data:{
-    //             uid:uid,
-    //             name:cabName
-    //     },
-    //         success:function(response) {
-    //             if(response=="Record updated successfully")
-    //             {
-    //                 document.getElementById("cabName").innerHTML=cabName;
-                
-                    
-    //                 document.getElementById("editCabinet").style.display="unset";
-    //                 document.getElementById("saveCabinet").style.display="none";
-    //             }else{
-    //                 alert(response);
-    //             }
-    //         }
-            
-    //     });
 }
 
 function submitClick(uid){
@@ -73,9 +50,9 @@ function submitClick(uid){
         if (this.readyState == 4 && this.status == 200) {
             if(this.responseText == "Record updated successfully"){
                 var threshText = document.getElementById("successDiv");
-                threshText.style.display = "inline";
+                threshText.style.opacity = "1"; 
                 setTimeout(function(){
-                    threshText.style.display = "none";
+                    threshText.style.opacity = "0"; 
                 }, 3000);
             }
             else{

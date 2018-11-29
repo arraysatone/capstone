@@ -68,4 +68,156 @@
 		padding: 0;
 		font-size: 5vw;
 	}
+
+	/* Cabinet Page */
+	.cabinetName{
+		text-align: center;
+		margin: 6% 0% 0% 0%;
+		color: #FAFAFA;
+		font-weight: bold;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+
+	.eventTable{
+		margin: 3% 0%;
+		/*margin: 0% 11.5% 5% 11.5%;
+		border-collapse: collapse;
+		border-radius: 6px;
+		box-shadow: 0 0 0 1px transparent;
+		table-layout: fixed !important;
+		width: 100% !important;*/
+		border-style: hidden;
+	}
+
+	.eventRow{
+		border: 2px solid #8c9fad;
+	}
+
+	.eventHeader{
+		text-align: center;
+		font-weight: bold;
+		color: #FAFAFA;
+		border: 0px solid white;
+		padding: 2%;
+		width: 25%;
+		background-color: #6C7F8E;
+		border-radius: 0px;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+	.eventData{
+		text-align: center;
+		border: 0px solid white;
+		color: #FAFAFA;
+		padding: 2%;
+	}
+
+	.optBtns{
+		margin-top: 0%;
+	}
+
+	.btnBox{
+		text-align: center;
+		margin: 0% 11.5% 3% 11.5%;
+		padding: 2%;
+		width: 5% !important;
+		background-color: #6C7F8E;
+		border-radius: 6px;
+	}
+
+	.btnBoxItem{
+		width: 30%;
+		margin: 0% 1%;
+		padding: 2% 0%;
+		color: #FAFAFA;
+		font-size: 2em;
+		border-radius: 6px;
+		background-color: #8c9fad;
+		border: 0px solid transparent;
+	}
+
+	.btnBox .colorUnsubbed{
+		color: #FAFAFA !important;
+	}
+
+	#maxTemp, #minTemp{
+		background-color: #6C7F8E;
+		border-radius: 6px;
+		margin: 0% 10% 3% 10%;
+		padding: 2% 0% 2% 0%;
+		font-size: 16px;
+	}
+
+	/* Data Text Edits */
+	.temp{
+		margin: 0% 0% 0% 0% !important;
+		font-size: 2em !important;
+		text-align: center;
+		font-weight: bold;
+		padding: 0;
+	}
+
+	.accel{
+		color: #FAFAFA;
+		margin-bottom: 5%;
+		font-size: 20px;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.hist{
+		font-size: 200%;
+		font-weight: bold;
+		color: white;
+	}
+
+	.chart{
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+
+	.histLbl{
+		text-align: left;
+		margin-left: 11.5%;
+		font-size: 20px;
+	}
+
+	.histInfo{
+		text-align: right;
+		margin-right: 11.5%;
+		font-size: 20px;
+	}
+
+	.disclaim{
+		font-size: 10px;
+		margin-bottom: 3%;
+		font-weight: bold;
+		color: white;
+	}
+
+	.btnBox{
+		text-align: center;
+		padding: 2%;
+		margin: 3% 0%;
+		width: 5% !important;
+		background-color: #6C7F8E;
+		border-radius: 6px;
+	}
+
+	.btnBoxItem{
+		width: 24%;
+		margin: 2% 2%;
+		padding: 2% 0%;
+		color: #FAFAFA;
+		font-size: 1.5em;
+		border-radius: 6px;
+		background-color: #8c9fad;
+		border: 0px solid transparent;
+	}
+
+	.btnBox .colorUnsubbed{
+		color: #FAFAFA !important;
+	}
 }

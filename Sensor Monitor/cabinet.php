@@ -145,13 +145,13 @@
 					<th class = "eventHeader">Year</th>
 				</tr>
 				<tr class = "eventRow">
-					<td class = "eventHeader">Temperature</td>
+					<td class = "eventHeader">Temp.</td>
 					<td class = "eventData tempData">-</td>
 					<td class = "eventData tempData">-</td> 
 					<td class = "eventData tempData">-</td>
 				</tr>
 				<tr class = "eventRow">
-					<td class = "eventHeader">Acceleration</td>
+					<td class = "eventHeader">Accel.</td>
 					<td class = "eventData accelData">-</td>
 					<td class = "eventData accelData">-</td> 
 					<td class = "eventData accelData">-</td>

@@ -61,6 +61,7 @@ html, body {
 .container{
 	margin: 0;
 	padding: 0;
+	max-width: 100%;
 }
 
 /* Data Text Edits */
@@ -381,13 +382,13 @@ input[type='number'] {
 }
 
 .eventTable{
-	margin: 0% 11.5% 5% 11.5%;
-	border-collapse: collapse;
+	margin: 0% 0% 5% 0%;
+	/*border-collapse: collapse;
 	border-radius: 6px;
-	border-style: hidden;
 	box-shadow: 0 0 0 1px transparent;
 	table-layout: fixed !important;
-	width: 100% !important;
+	width: 100% !important;*/
+	border-style: hidden;
 }
 
 .eventRow{
@@ -412,12 +413,6 @@ input[type='number'] {
 	border: 0px solid white;
 	color: #FAFAFA;
 	padding: 2%;
-}
-
-table{
-	border-collapse: collapse;
-  	border-radius: 1em;
-  	overflow: hidden;
 }
 
 .optBtns{

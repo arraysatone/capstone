@@ -83,7 +83,7 @@
 	/* Cabinet Page */
 	.cabinetName{
 		text-align: center;
-		margin: 6% 0% 0% 0%;
+		margin: 3% 0% 0% 0%;
 		color: #FAFAFA;
 		font-weight: bold;
 		font-size: 30px;
@@ -229,6 +229,60 @@
 
 	.btnBox .colorUnsubbed{
 		color: #FAFAFA !important;
+	}
+
+	/* Trends Page Date Selectors */
+	.datePicker{
+		border-radius: 6px;
+		margin: 2% 0%;
+		padding: 3%;
+		border: 0px solid transparent;
+		font-size: 20px;
+		width: 100%;
+	}
+
+	.datePickerTitle{
+		text-align: center;
+		margin: 2% 0%;
+		padding: 0;
+		color: #FAFAFA;
+		font-weight: bold;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+
+	.betweenPicker{
+		margin: 4% 0%;
+	}
+
+	.betweenPicker table tr td{
+		padding: 0% 4% 0% 0%;
+		margin: 0;
+		text-align: center;
+	}
+
+	.submitArea{
+		text-align: center;
+		width: 100%;
+		padding: 0;
+		margin: 1% 0%;
+	}
+
+	.datePickerButton{
+		border-radius: 6px;
+		border: 0px solid transparent;
+		background-color: #6C7F8E;
+		color: #FAFAFA;
+		font-size: 20px;
+		margin: auto;
+		padding: 1% 4%;
+		cursor: pointer;
+	}
+
+	#recTemp, #recMov{
+		margin: 3% 5%;
+		width: 1% !important;
+		height: 400px !important;
 	}
 
 }
@@ -456,5 +510,60 @@
 
 	.btnBox .colorUnsubbed{
 		color: #FAFAFA !important;
+	}
+
+	/* Trends Page Date Selectors */
+	.datePicker{
+		border-radius: 6px;
+		margin: 2% 0% 2% 6%;
+		padding: 1%;
+		border: 0px solid transparent;
+		font-size: 22px;
+		width: 60%;
+		float: left;
+	}
+
+	.datePickerTitle{
+		text-align: right;
+		margin: 2% 0%;
+		padding: 0% 0% 0% 0%;
+		color: #FAFAFA;
+		font-weight: bold;
+		font-size: 26px;
+		text-transform: uppercase;
+	}
+
+	.betweenPicker{
+		margin: 2% 0%;
+	}
+
+	.betweenPicker table tr td{
+		padding: 0% 0% 0% 0%;
+		margin: 0;
+		text-align: center;
+	}
+
+	.submitArea{
+		text-align: center;
+		width: 100%;
+		padding: 0;
+		margin: 0% 0% 0% 1%;
+	}
+
+	.datePickerButton{
+		border-radius: 6px;
+		border: 0px solid transparent;
+		background-color: #6C7F8E;
+		color: #FAFAFA;
+		font-size: 20px;
+		margin: auto;
+		padding: 1% 2%;
+		cursor: pointer;
+	}
+
+	#recTemp, #recMov{
+		margin: 2% 8%;
+		width: 1% !important;
+		height: 500px !important;
 	}
 }

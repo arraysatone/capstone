@@ -11,6 +11,7 @@
 	*
 	*    server_page.php
 	*    
+	*	 Jesse Berube 
 	*    Marc Harquail
 	*
 	*/
@@ -21,6 +22,7 @@
 	$content = file_get_contents("php://input");
 	$data = json_decode($content);
 
+	
 	$uid = $data->uid;
 	$temp = $data->temperature;
 	$move = $data->movement;
@@ -39,22 +41,23 @@
 		$move = 0;
 	}
 
-	$sql = "SELECT * FROM SENSORS WHERE uid = '.$uid.'";
+	$sql = "SELECT * FROM SENSORS WHERE uid = '".$uid."'";
 
 	$result = $conn->query($sql);
 
-	//Print data for current temp WRITTEN BY JESSE
+
 	if ($result->num_rows > 0) {
 		$sql = "INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (".$temp.", ".$move.")";
 		if ($conn->query($sql) === TRUE) {
 		    echo "New record created successfully";
+			checkTemp($temp, $uid, $conn);
 		} 
 		else {
 		    error_log("Error: " . $sql . "<br>" . $conn->error,0);
 		}
 	}
 	else{
-		$insertSensor = "INSERT INTO SENSORS (uid) VALUES ('.$uid.')";
+		$insertSensor = "INSERT INTO SENSORS (uid) VALUES ('".$uid."')";
 		$insertResult = $conn->query($insertSensor);
 		if($insertResult){
 			$createTable = "CREATE TABLE `Mapleleaf_Capstone`.`SENSOR_".$uid."` ( `id` INT NOT NULL AUTO_INCREMENT , `temp` FLOAT(10,7) NOT NULL , `movement` BOOLEAN NOT NULL , `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = MyISAM;";
@@ -69,6 +72,87 @@
 				}
 			}
 		}
+	}
+	
+	
+	function checkTemp($cTemp, $uid, $conn){
+		$sqlThresh = "SELECT threshold FROM SENSORS WHERE uid = '".$uid."'";
+		$thresh = $conn->query($sqlThresh);
+
+		while($threshRow = $thresh->fetch_assoc()){
+			if($threshRow['threshold'] > $ctemp){
+
+				//Start of code for email notification 		 
+				$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
+				$emailResult = $conn->query($sqlEmail);
+
+				if($emailResult->num_rows == 0){
+					$sql = "INSERT INTO EMAIL_NOTIF (uid) VALUES ('".$uid."')";
+					$conn->query($sql);
+
+					$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
+					$emailResult = $conn->query($sqlEmail);
+				}
+
+				while($innerResult = $emailResult->fetch_assoc()){
+					$lastEmail = $innerResult['lastEmail'];
+					$delay = $innerResult['emailDelay'];
+
+					//Turn time received from database to unix timestamp
+					$lastEmailUnix = strtotime($lastEmail);
+					$currentTime = time();
+
+					//Calulated the time difference in minutes
+					$difference = ($currentTime - $lastEmailUnix)/60;			
+
+					if($difference > $delay)
+					{
+						//Send the notifiation and updated the lastemail column in the database
+
+						$sql = "SELECT EMAIL_LIST.email FROM EMAIL_LIST INNER JOIN SUB_STATUS ON EMAIL_LIST.id = SUB_STATUS.userId WHERE SUB_STATUS.uid = '".$uid."'";
+						$emailArray = array();
+						$result = $conn->query($sql);
+						if ($result->num_rows > 0) {
+							while($emailRow = $result->fetch_assoc()){
+								array_push($emailArray, '<'.$emailRow['email'].'>');
+							}
+
+							$sql = "SELECT cabinetName FROM LOCATION_SENSORS WHERE uid = '".$uid."'";	
+							$cabResult = $conn->query($sql);	
+							if($cabResult->num_rows >0){
+								while($cabName = $cabResult->fetch_assoc()){
+									$cabUid = $cabName['cabinetName'];
+									notification($cabUid, $cTemp, $emailArray);
+								}	
+							}
+							else
+							{
+								notification($uid, $cTemp, $emailArray);
+							}
+
+							$currentTime = date("Y-m-d H:i:s");
+							$insert = "UPDATE EMAIL_NOTIF SET lastEmail = '".$currentTime."' WHERE uid = '".$uid."'";
+							$runInsert = $conn->query($insert);	
+						}
+					}
+				}
+			}	
+		}
+	}
+	
+	function notification($id, $tempera, $eArray) {
+		$subject = $id . " Is Over The Temperature Threshold";
+
+		$message = $id . " is reading a temperature of " .$tempera. " degrees celsius, which exceeds the threshold set for this sensor.";
+
+		$headers = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'From: <noreply@arraysatone.com>' . "\r\n";
+		$headers .= 'Reply-To: <noreply@arraysatone.com>' . "\r\n";
+		$headers .= 'To: '. implode(',', $eArray) . "\r\n";
+		$headers .= 'Content-Type: text/html; charset=ISO-8859-1'. "\r\n";
+		$headers .= 'X-Mailer: PHP/' . phpversion();
+		mail($to,$subject,$message,$headers);
+
 	}
 
 	$conn->close();

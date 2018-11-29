@@ -14,6 +14,7 @@
 *
 */
 
+/*
 const applicationServerPublicKey = 'BDdwEBrdYJHza76WnYnP4rWMSELpDXxqgTG1v624Ofk86CjgMfL3wD22ngQjzWFbJdlDU2YCWgeFPn8YPWYvEGY';
 
 
@@ -77,12 +78,12 @@ function subscribeUser() {
     console.log('User is subscribed.');
 
     isSubscribed = true;
-	    updateBtn();
+	  
 
   })
   .catch(function(err) {
     console.log('Failed to subscribe the user: ', err);
-	updateBtn();
+	
   });
 }
-
+*/

@@ -119,18 +119,20 @@ html, body {
 }
 
 #invalidPass{
+	display: inline;
 	color: #fe4349;
 	padding: 0;
 	margin: 0;
 	font-size: 2.5vw;
+	font-weight: bold;
 }
 
 .invalidShow{
-	display: initial;
+	opacity: 1;
 }
 
 .invalidHidden{
-	display: none;
+	opacity: 0;
 }
 
 /********************************** Mobile Phones Media Queries **********************************/

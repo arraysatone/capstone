@@ -566,4 +566,109 @@
 		width: 1% !important;
 		height: 500px !important;
 	}
+
+	/* Slider */
+	.slider {
+	    -webkit-appearance: none;
+	    width: 40%;
+	    height: 12px;
+	    border-radius: 5px;
+	    background: #121212;
+	    outline: none;
+	    opacity: 0.7;
+	    -webkit-transition: .2s;
+	    transition: opacity .2s;
+	    margin: 1% 30%;
+	}
+
+	.slider::-webkit-slider-thumb {
+	    -webkit-appearance: none;
+	    appearance: none;
+	    width: 3vw;
+	    height: 3vw;
+	    border-radius: 6px;
+	    background: #A4B8D8;
+	    cursor: pointer;
+	}
+
+	.slider::-moz-range-thumb {
+	    width: 3vw;
+	    height: 3vw;
+	    border-radius: 6px;
+	    background: #A4B8D8;
+	    cursor: pointer;
+	}
+
+	.settingsHeader{
+		text-align: center;
+		font-size: 26px;
+		color: #FAFAFA;
+		padding: 0;
+		margin: 1% 0%;
+	}
+
+	.settingsButton{
+		border-radius: 6px;
+		border: 0px solid transparent;
+		background-color: #6C7F8E;
+		color: #FAFAFA;
+		font-size: 20px;
+		margin: 0% auto 1% auto;
+		padding: 1% 4%;
+		cursor: pointer;
+	}
+
+	.settingsArea{
+		text-align: center;
+	}
+
+	#successDiv{
+		opacity: 0;
+		text-align: center;
+		margin: 0% 0% 1% 0%;
+		padding: 0;
+		color: #33cc33;
+		font-size: 2vw;
+		font-weight: bold;
+	}
+
+	#cabName{
+		text-align: center;
+	    background-color: transparent;
+	    color: #FAFAFA;
+	    font-size: 46px;
+	    margin: 0% 0% 1% 0%;
+	    padding: 0%;
+	    border: 0px solid transparent;
+	    font-weight: bold;
+	    width: 100%;
+	    border-radius: 6px;
+	}
+
+	#cabIn{
+		border-radius: 6px;
+		margin: 0% 0% 1% 0%;
+		padding: 1%;
+		width: 40%;
+		border-style: hidden;
+		font-size: 30px;
+	}
+
+	#cabEdit{
+		text-align: center;
+	}
+
+	/* Slider Number Indicator */
+	.tempNum {
+		text-align: center;
+		background-color: transparent;
+		color: #FAFAFA;
+		font-size: 40px;
+		margin: 1% 0%;
+		padding: 0%;
+		border: 0px solid transparent;
+		font-weight: bold;
+		width: 100%;
+		border-radius: 6px
+	}
 }

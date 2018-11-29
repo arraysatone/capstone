@@ -103,41 +103,40 @@
             </div>
         </nav>
 
-
         <div class="row">
             <div class="col cabinetName"><?php include 'php/getCabinetName.php'?></div>
         </div>
         <div class="row">
-            <div class="col">Modify Temperature Threshold</div>
+            <div class="col settingsHeader">Modify Temperature Threshold:</div>
         </div>
         <div class="row">
             <div class="col">
                 <!-- Cabinet List -->
                 <div class="loginDiv">
-                    <input type="range" id="rangeThresh" min='10' max='70' class="slider" value=<?php echo "'".$threshold."'"; ?> oninput="textThresh.innerHTML = rangeThresh.value" >
+                    <input type="range" id="rangeThresh" min='10' max='70' class="slider" value=<?php echo "'".$threshold."'"; ?> oninput="textThresh.innerHTML = rangeThresh.value + '&degC'" >
                     <div class="tempNum" id="textThresh">
-                        <?php echo $threshold; ?>
+                        <?php echo ''.$threshold.'&degC'; ?>
                     </div>
                 </div>
-                <br>
-                <button onclick="submitClick('<?php include 'php/set_GET_uid.php'?>')">Change Threshold</button>
-                <div id="successDiv" style="display: none;">Threshold Changed</div>
+                <div class="settingsArea">
+                    <button class="settingsButton" onclick="submitClick('<?php include 'php/set_GET_uid.php'?>')">Change Threshold</button>
+                    <br>
+                    <div id="successDiv">Threshold Changed</div>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">Modify Cabinet Name</div>
+            <div class="col settingsHeader">Modify Cabinet Name:</div>
         </div>
         <div class="row">
             <div class="col">
-                <table id="nameTable">
-                    <tr>
-                        <td id="cabName"><?php include 'php/getCabinetName.php'?></td>
-                        <td id="cabEdit">
-                            <input type='button' class="editButton" id="editCabinet" value="Edit" onclick="edit('<?php include 'php/getCabinetName.php'?>');">
-                            <input type='button' class="saveButton" id="saveCabinet" value="Save" style="display: none" onclick="save('<?php include 'php/set_GET_uid.php'?>');">
-                        </td>
-                    </tr>
-                </table>
+                <div id="cabName">
+                    <?php include 'php/getCabinetName.php'?>
+                </div>
+                <div id="cabEdit">
+                    <input type='button' class="editButton settingsButton" id="editCabinet" value="Edit" onclick="edit('<?php include 'php/getCabinetName.php'?>');">
+                    <input type='button' class="saveButton settingsButton" id="saveCabinet" value="Save" style="display: none" onclick="save('<?php include 'php/set_GET_uid.php'?>');">
+                </div>
             </div>
         </div>
     </body>

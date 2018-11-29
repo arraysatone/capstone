@@ -80,9 +80,6 @@
         				<li class="nav-item active">
         					<a class="nav-link" href="#">Live View</a>
         				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="trends?uid=<?php include 'php/set_GET_uid.php' ?>"><?php include 'php/getCabinetName.php'?> Trends</a>
-        				</li>
         				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>

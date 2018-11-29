@@ -1,5 +1,4 @@
 <?php
-session_start();
   /*
   *    ArraysAtOne Capstone 2018 - Maple Leaf Foods
   *

@@ -1,6 +1,5 @@
 <?php 
     session_start();
-
     if (isset($_GET['uid'])) {
 		$_SESSION['uid'] = $_GET['uid'];
 	}
@@ -10,21 +9,15 @@
 ?>
 
 <!-- 
-
         ArraysAtOne Capstone 2018 - Maple Leaf Foods
-
         Kevin Baumgartner
         Jesse Berube
         Marc Harquail
         Alex Ireland
-
         - - - - - - - - - - - - - - - - - - - - - - -
-
 		login.php
-
         Jesse Berube
         Marc Harquail
-
  -->
 
 <!DOCTYPE html>
@@ -34,7 +27,7 @@
 
 	<!-- Head -->
 	<head>
-        <?php include 'bodyguard.php' ?>
+
 		<!-- Meta -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,14 +70,10 @@
 				margin-left: 2%;
 				margin-right: 2%;
 			}
-			.saveButton {
-				display:none;
-			}
 			#feedback
 			{
 				display:none;
 			}
-
 		</style>
 	</head>
 
@@ -106,18 +95,10 @@
                 <!-- Dropdown Items -->
         		<div class="collapse navbar-collapse" id="navbarNav">
         			<ul class="navbar-nav">
-        				<li class="nav-item active">
-        					<a class="nav-link" href="#">Live View</a>
-        				</li>
         				<li class="nav-item">
-        					<a class="nav-link" href="trends?uid=<?php include 'php/set_GET_uid.php' ?>">Trends</a>
+        					<a class="nav-link" href="/">Home</a>
         				</li>
-        				<li class="nav-item">
-        					<a class="nav-link" href="settings?uid=<?php include 'php/set_GET_uid.php' ?>">Settings</a>
-        				</li>
-        				<li class="nav-item">
-        				    <?php  include './php/checkforuser.php' ?>
-        				</li>
+        				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>
             </div>
@@ -146,7 +127,7 @@
 				<td><input disabled type="checkbox" id="statusVal<?php echo $row['ID'];?>" value="1" <?php echo ($row['IsAdmin']==1 ? 'checked' : '');?>></td>
 				<td>
 				<input type='button' class="editButton" id="editButton<?php echo $row['ID'];?>" value="Edit" onclick="edit('<?php echo $row['ID'];?>');">
-				<input type='button' class="saveButton" id="saveButton<?php echo $row['ID'];?>" value="Save" onclick="save('<?php echo $row['ID'];?>');">
+				<input type='button' style="display:none" class="saveButton" id="saveButton<?php echo $row['ID'];?>" value="Save" onclick="save('<?php echo $row['ID'];?>');">
 				<input type='button' class="deleteButton" id="deleteButton<?php echo $row['ID'];?>" value="Delete" onclick="deleteR('<?php echo $row['ID'];?>');">
 				</td>
 			</tr>

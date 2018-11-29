@@ -10,6 +10,7 @@
 *
 *    indexScript.js
 *    
+*	 Jesse Berube
 *    Marc Harquail
 *
 */
@@ -31,6 +32,8 @@ window.onload = function(){
     setTimeout(function() {
         checkSub();
     }, 100);
+	sendNotif();
+	runNotifs();
 };
 
 function checkSub(){
@@ -163,6 +166,40 @@ function makeMovementUnsafe(i){
     moveStatus[i].classList.add("colorUnsafe");
     moveSymbol[i].classList.remove("fa-check-circle");
     moveSymbol[i].classList.add("fa-exclamation-circle");
+}
+
+function runNotifs(){
+	setInterval(function(){
+		sendNotif();
+	},600000);
+}
+
+function sendNotif(){
+	$.getJSON("../php/indexTemp.php", function(result){
+		$.each(result, function(key, sensor){
+		var currentBtnTemp = document.getElementsByClassName("newBtnDisplayText");
+		var len = sensor.length;
+			for (var i = 0; i < len; i++){
+				var uid = sensor[i].uid;
+				var temp = sensor[i].temp;
+				var status = sensor[i].status;
+
+				
+				//Push.Permission.request(onGranted, onDenied);
+			
+			
+				if(status == 2 || status == 4){
+					Push.create("Arrays At One", {
+						body: "Cabinet 1 Is Over The Temperature Threshold!",
+						timeout: 5000,
+						onClick: function() {
+							window.open("https://www.arraysatone.com/cabinet.php?uid=0001203B");;
+						}
+					});
+				}
+			}
+		});
+	});
 }
 
 function liveUpdate(){

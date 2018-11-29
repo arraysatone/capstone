@@ -1,0 +1,10 @@
+php_value date.timezone 'Canada/Eastern'
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?arraysatone\.com
+RewriteRule ^(.*)$ https://www.arraysatone.com/$1 [R,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html

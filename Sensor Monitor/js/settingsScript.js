@@ -14,29 +14,60 @@
 *
 */
 
-$(document).ready(function() {
-    var slide = document.getElementById("rangeThresh");
-    var threshDiv = document.getElementById("textThresh");
+function edit(cab){
+    document.getElementById("cabName").innerHTML="<input type='text' id='cabIn' value='"+cab+"'>";
 
-    function updateTextInput(val) {
-        document.getElementById('textThresh').value=val; 
-    }
+    document.getElementById("editCabinet").style.display="none";
+    document.getElementById("saveCabinet").style.display="unset";
+}
 
-    slide.addEventListener("mousemove", function() {
-        val = slide.value;
-        if (val >70){
-            val = 70;
+function save(uid){
+    var cabName = document.getElementById("cabIn").value;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.responseText == "Record updated successfully"){
+                document.getElementById("cabName").innerHTML=cabName;
+            
+                
+                document.getElementById("editCabinet").style.display="unset";
+                document.getElementById("saveCabinet").style.display="none";
+
+                window.location.reload();
+            }else{
+                alert(this.responseText);
+            }
         }
-        else if(val < 10){
-            val = 10;
-        }
-        document.getElementById('rangeThresh').value=val;
-        document.getElementById('textThresh').value=val;
-    });
-});
+        };
+        xmlhttp.open("GET", "./php/updateCabinetName.php?uid=" + uid + "&name=" + cabName, true);
+        xmlhttp.send();
+
+    // $.ajax
+    //     ({
+    //         type:'post',
+    //         url:'./php/updateCabinetName.php',
+    //         data:{
+    //             uid:uid,
+    //             name:cabName
+    //     },
+    //         success:function(response) {
+    //             if(response=="Record updated successfully")
+    //             {
+    //                 document.getElementById("cabName").innerHTML=cabName;
+                
+                    
+    //                 document.getElementById("editCabinet").style.display="unset";
+    //                 document.getElementById("saveCabinet").style.display="none";
+    //             }else{
+    //                 alert(response);
+    //             }
+    //         }
+            
+    //     });
+}
 
 function submitClick(uid){
-    var temp = document.getElementById("textThresh").value;
+    var temp = document.getElementById("rangeThresh").value;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

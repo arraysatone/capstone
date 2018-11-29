@@ -67,6 +67,9 @@
         		<div class="collapse navbar-collapse" id="navbarNav">
         			<ul class="navbar-nav">
         				<li class="nav-item">
+        					<a class="nav-link" href="/">Home</a>
+        				</li>
+        				<li class="nav-item">
         					<a class="nav-link" href="cabinet?uid=<?php echo ''.$_GET['uid'] ?>">Live View</a>
         				</li>
         				<li class="nav-item active">
@@ -75,13 +78,14 @@
         				<li class="nav-item">
         					<a class="nav-link" onclick="shareEmail()">Share</a>
         				</li>
+        				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>
             </div>
     	</nav>
 
     	<!-- Chart Displays-->
-		<div class="col-lg-12">
+		<div class="col">
 			<div class="row">
 	    		<div class = "col cabinetName"><?php include 'php/getCabinetName.php'?></div>
 	    	</div>

@@ -68,13 +68,14 @@
 				$counter = $counter + 1;
 			}
 			else{
+				trigger_error('Invalid query: ' . $conn->error);
 				$counter = $counter + 1;
 			}
 		}
 		echo json_encode($arr);
 	}
 	else {
-		echo "0 results";
+		trigger_error('Invalid query: ' . $conn->error);
 	}
 	$conn->close();
 

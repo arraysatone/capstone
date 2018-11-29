@@ -122,105 +122,63 @@
         		</div>
             </div>
     	</nav>
-
-		<table id="userTable">
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Username</th>
-				<th>Is Admin</th>
-			</tr>
-		<?php			
-		$sql = "SELECT ID, FirstName, LastName, Username, IsAdmin FROM UserTable";
-		$result = $conn->query($sql);
+		<br><br><br><br><br><br>
+		<div id="firstnameText">First Name:</div>
+		<input class="formcontrol" type="text" id="firstname">
+		<div id="lasenameText">Last Name:</div>
+		<input class="formcontrol" type="text" id="lastname">
+		<div id="emailText">Email:</div>
+		<input class="formcontrol" type="text" id="email">
+		<div id="usernameText">Username:</div>
+		<input class="formcontrol" type="text" id="username">
+		<div id="passwordText">Password</div>
+		<input type="password" id="password">
+		<input type="button" value="Create User" onclick="CreateUser()">
+		<input type="button" value="Generate Error" onclick="GenerateError()">
+		<input type="button" value="Generate Success" onclick="GenerateSuccess()">
+		<input type="button" value="Clear" onclick="RemoveErrorSuccess()">
 		
-		if($result->num_rows > 0)
-		{
-			while($row = $result->fetch_assoc()) 
-			{
-		?>
-			<tr id="row<?php echo $row['ID'];?>">
-				<td id="firstNameVal<?php echo $row['ID'];?>"><?php echo $row['FirstName'];?></td>
-				<td id="lastNameVal<?php echo $row['ID'];?>"><?php echo $row['LastName'];?></td>
-				<td id="usernameVal<?php echo $row['ID'];?>"><?php echo $row['Username'];?></td>
-				<td><input disabled type="checkbox" id="statusVal<?php echo $row['ID'];?>" value="1" <?php echo ($row['IsAdmin']==1 ? 'checked' : '');?>></td>
-				<td>
-				<input type='button' class="editButton" id="editButton<?php echo $row['ID'];?>" value="Edit" onclick="edit('<?php echo $row['ID'];?>');">
-				<input type='button' class="saveButton" id="saveButton<?php echo $row['ID'];?>" value="Save" onclick="save('<?php echo $row['ID'];?>');">
-				<input type='button' class="deleteButton" id="deleteButton<?php echo $row['ID'];?>" value="Delete" onclick="deleteR('<?php echo $row['ID'];?>');">
-				</td>
-			</tr>
-		<?php
-			}
-		}
-		?>
-		<!--
-			<tr id="new_row">
-				<td><input type="text" id="newFirstName"></td>
-				<td><input type="text" id="newLastName"></td>
-				<td><input type="text" id="newUsername"></td>
-				<td><input type="text" id="newPassword"></td>
-				<td><input type="text" id="newStatus"></td>
-				<td><input type="button" value="Insert Row" onclick="insert();"></td>
-			</tr>
-		-->
-		</table>
-    	<br>
-    	<form>
-    		<input type="button" id="add" class="login buttons" value="New User" onclick="redirect('/registrar')">
-    	</form>
-		<input type="password" id="old" placeholder="Old Password">
-		<input type="password" id="new" placeholder="New Password">
-		<input type="password" id="newconfirm" placeholder="Confirm Password">
-		<input type="button" onclick="changePassword()">
+		<script>
 		
-    </div>
-    <div id = "feedback">Database Successfully Updated</div>
-	</body>
-	<script>
-	
-	function changePassword(){
-		if(confirm){
+		function CreateUser(){
 			var postData = {
-				"pass" : document.getElementById("old").value,
-				"newpass" : document.getElementById("new").value
+				"user": document.getElementById("username").value,
+				"pass" : document.getElementById("password").value,
+				"firstname" : document.getElementById("firstname").value,
+				"lastname" : document.getElementById("lastname").value,
+				"email" : document.getElementById("email").value
 			};
-			$.post("php/changePass.php",postData,function(data,status){
+			$.post("php/register.php",postData,function(data,status){
 		        	console.log("Data: " + data + "\nStatus: " + status);
 		        	if (data == "success"){
 		        		console.log("Success");
-						PasswordChangeSuccess();
 		        	}
 		        	else if(data == "Password incorrect"){
-						//Placeholder Error Need to replace
 		        	}
 					else if(data == "User already exists"){
-						// Placeholder Error need to replace
 					}
 			});
 		}
-	}
-	
-	function confirm(){
-		if($("#new").val() == $("#newconfirm").val()){
-			console.log("Pass Match");
-			return true;
+		function DoSomething(){
+			console.log("I did something");
 		}
-		PasswordNoMatch();
-		return false;
-	}
-	
-	function redirect(url){
-		window.location.replace(url);
-	}
-	
-	function PasswordNoMatch(){
-		console.log("No match");
-	}
-	
-	function PasswordChangeSuccess(){
-		//Show success or something
-	}
-	
-	</script>
+		function GenerateSuccess(){
+			console.log("Success Generated");
+			$(".formcontrol").addClass("Success");
+		}
+		function GenerateError(){
+			console.log("Error Generated");
+			$(".formcontrol").addClass("Error");
+		}
+		
+		function RemoveErrorSuccess(){
+			$(".formcontrol").removeClass("Error");
+			$(".formcontrol").removeClass("Success");
+		}
+		</script>
+		
+		
+		
+
+	</body>
 </html>

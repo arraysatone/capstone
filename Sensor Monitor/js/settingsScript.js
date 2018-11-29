@@ -14,29 +14,20 @@
 *
 */
 
-$(document).ready(function() {
-    var slide = document.getElementById("rangeThresh");
-    var threshDiv = document.getElementById("textThresh");
+function edit(cab){
+    document.getElementById("cabName").innerHTML="<input type='text' id='cabIn' value='"+cab+"'>";
 
-    function updateTextInput(val) {
-        document.getElementById('textThresh').value=val; 
-    }
+    document.getElementById("editCabinet").style.display="none";
+    document.getElementById("saveCabinet").style.display="unset";
+}
 
-    slide.addEventListener("mousemove", function() {
-        val = slide.value;
-        if (val >70){
-            val = 70;
-        }
-        else if(val < 10){
-            val = 10;
-        }
-        document.getElementById('rangeThresh').value=val;
-        document.getElementById('textThresh').value=val;
-    });
-});
+function save(uid){
+    document.getElementById("editCabinet").style.display="unset";
+    document.getElementById("saveCabinet").style.display="none";
+}
 
 function submitClick(uid){
-    var temp = document.getElementById("textThresh").value;
+    var temp = document.getElementById("rangeThresh").value;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

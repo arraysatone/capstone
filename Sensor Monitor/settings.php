@@ -104,19 +104,40 @@
         </nav>
 
 
-
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col cabinetName"><?php include 'php/getCabinetName.php'?></div>
+        </div>
+        <div class="row">
+            <div class="col">Modify Temperature Threshold</div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <!-- Cabinet List -->
                 <div class="loginDiv">
-                    <input type="range" id="rangeThresh" min='10' max='70' class="slider" value=<?php echo "'".$threshold."'"; ?> >
-                    <div style="text-align:center">
-                        <input type="number" id="textThresh" min='10' max='70' class="tempNum" style="text-align:center" value=<?php echo "'".$threshold."'"; ?> onchange="updateRangeInput(this.value);"/>
+                    <input type="range" id="rangeThresh" min='10' max='70' class="slider" value=<?php echo "'".$threshold."'"; ?> oninput="textThresh.innerHTML = rangeThresh.value" >
+                    <div class="tempNum" id="textThresh">
+                        <?php echo $threshold; ?>
                     </div>
                 </div>
                 <br>
                 <button onclick="submitClick('<?php include 'php/set_GET_uid.php'?>')">Change Threshold</button>
                 <div id="successDiv" style="display: none;">Threshold Changed</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Modify Cabinet Name</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table id="nameTable">
+                    <tr>
+                        <td id="cabName"><?php include 'php/getCabinetName.php'?></td>
+                        <td id="cabEdit">
+                            <input type='button' class="editButton" id="editCabinet" value="Edit" onclick="edit('<?php include 'php/getCabinetName.php'?>');">
+                            <input type='button' class="saveButton" id="saveCabinet" value="Save" style="display: none" onclick="save('<?php include 'php/set_GET_uid.php'?>');">
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>

@@ -49,6 +49,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+		<script src="./js/passwordScript.js"></script>
 		<script src="./js/userList.js"></script>
 	</head>
 
@@ -111,17 +112,12 @@
 			}
 		}
 		?>
-		<!--
-			<tr id="new_row">
-				<td><input type="text" id="newFirstName"></td>
-				<td><input type="text" id="newLastName"></td>
-				<td><input type="text" id="newUsername"></td>
-				<td><input type="text" id="newPassword"></td>
-				<td><input type="text" id="newStatus"></td>
-				<td><input type="button" value="Insert Row" onclick="insert();"></td>
-			</tr>
-		-->
 		</table>
-    </div>
+
+		<input type="password" id="old" placeholder="Old Password">
+		<input type="password" id="new" placeholder="New Password">
+		<input type="password" id="newconfirm" placeholder="Confirm Password">
+		<input type="button" onclick="changePassword()">
+
 	</body>
 </html>

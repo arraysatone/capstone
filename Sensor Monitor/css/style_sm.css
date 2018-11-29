@@ -220,4 +220,58 @@
 	.btnBox .colorUnsubbed{
 		color: #FAFAFA !important;
 	}
+
+	/* Trends Page Date Selectors */
+	.datePicker{
+		border-radius: 6px;
+		margin: 2% 0%;
+		padding: 3%;
+		border: 0px solid transparent;
+		font-size: 20px;
+		width: 100%;
+	}
+
+	.datePickerTitle{
+		text-align: center;
+		margin: 2% 0%;
+		padding: 0;
+		color: #FAFAFA;
+		font-weight: bold;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+
+	.betweenPicker{
+		margin: 4% 0%;
+	}
+
+	.betweenPicker table tr td{
+		padding: 0% 4% 0% 0%;
+		margin: 0;
+		text-align: center;
+	}
+
+	.submitArea{
+		text-align: center;
+		width: 100%;
+		padding: 0;
+		margin: 1% 0%;
+	}
+
+	.datePickerButton{
+		border-radius: 6px;
+		border: 0px solid transparent;
+		background-color: #6C7F8E;
+		color: #FAFAFA;
+		font-size: 20px;
+		margin: auto;
+		padding: 1% 4%;
+		cursor: pointer;
+	}
+
+	#recTemp, #recMov{
+		margin: 2% 2%;
+		width: 1% !important;
+		height: 300px !important;
+	}
 }

@@ -85,10 +85,10 @@
     	</nav>
 
     	<!-- Chart Displays-->
-		<div class="col">
 			<div class="row">
 	    		<div class = "col cabinetName"><?php include 'php/getCabinetName.php'?></div>
 	    	</div>
+	    	<div class="col">
 			<div class="row betweenPicker">
 				<table class="col">
 					<tr>

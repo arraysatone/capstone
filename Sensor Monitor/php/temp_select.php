@@ -34,7 +34,6 @@ $sql = "SELECT `temp`, `time` FROM SENSOR_$uid WHERE `time`=(SELECT MAX(`time`) 
 
 $result = $conn->query($sql);
 
-//Print data for current temp WRITTEN BY JESSE
 if ($result->num_rows > 0) {
       // output data of each row
   while($row = $result->fetch_assoc()) {

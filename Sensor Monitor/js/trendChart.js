@@ -56,11 +56,14 @@ window.onload = function() {
     after = document.getElementById('recTempAfter');
     before.value = past;
     after.value = today;
-    updateTemperatures();
-    updateMovements();
+    var url_string = window.location.href; //window.location.href
+    var url = new URL(url_string);
+    var uid = url.searchParams.get("uid");
+    updateTemperatures(uid);
+    updateMovements(uid);
 }
 
-function changeTempRange(){
+function changeTempRange(uid){
     var preAfter = after.value;
     var strSub = after.value
     strSub = strSub.substring(0,8);
@@ -89,12 +92,12 @@ function changeTempRange(){
             updateTemperatures();
         }
         };
-        xmlhttp.open("GET", "./php/fetchTrends.php?before=" + before.value + "&after=" + strFix, true);
+        xmlhttp.open("GET", "./php/fetchTrends.php?before=" + before.value + "&after=" + strFix + "&uid=" + uid, true);
         xmlhttp.send();
 
 }
 
-function updateTemperatures(){
+function updateTemperatures(uid){
 
     var strSub = after.value
     strSub = strSub.substring(0,8);
@@ -106,7 +109,7 @@ function updateTemperatures(){
     var strFix = strSub + strDay + "";
 
     $.ajax({
-        url : "./php/fetchTrends.php?before=" + before.value + "&after=" + strFix,
+        url : "./php/fetchTrends.php?before=" + before.value + "&after=" + strFix + "&uid=" + uid,
         type : "GET",
         success : function(data){
             console.log(data);
@@ -190,9 +193,9 @@ function updateTemperatures(){
     });
 }
 
-function updateMovements(){
+function updateMovements(uid){
     $.ajax({
-        url : "./php/fetchMovements.php",
+        url : "./php/fetchMovements.php?uid=" + uid,
         type : "GET",
         success : function(data){
             console.log(data);

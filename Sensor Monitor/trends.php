@@ -103,7 +103,7 @@
 			</div>
 
 			<div class="row submitArea">
-				<input id="tempSubmit" class="datePickerButton" type="button" name="tempSubmit" onclick="changeTempRange()" value="Update">
+				<input id="tempSubmit" class="datePickerButton" type="button" name="tempSubmit" onclick="changeTempRange('<?php include 'php/set_GET_uid.php'?>')" value="Update">
 			</div>
 
 	    	<!-- Recent Temperatures -->

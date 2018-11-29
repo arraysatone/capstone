@@ -145,18 +145,21 @@ html, body {
 /* Trends Page Date Selectors */
 .datePicker{
 	border-radius: 6px;
-	margin: 0;
+	margin: 3% 0%;
 	padding: 4%;
 	border: 0px solid transparent;
 	font-size: 25px;
+	width: 100%;
 }
 
 .datePickerTitle{
+	text-align: center;
 	margin: 2% 0%;
 	padding: 0;
 	color: #FAFAFA;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 35px;
+	text-transform: uppercase;
 }
 
 .betweenPicker{
@@ -164,7 +167,7 @@ html, body {
 }
 
 .betweenPicker table tr td{
-	padding: 0;
+	padding: 0% 5% 0% 0%;
 	margin: 0;
 	text-align: center;
 }
@@ -179,9 +182,18 @@ html, body {
 .datePickerButton{
 	border-radius: 6px;
 	border: 0px solid transparent;
-	background-color: #FAFAFA;
+	background-color: #6C7F8E;
+	color: #FAFAFA;
 	font-size: 25px;
 	margin: auto;
+	padding: 2% 5%;
+	cursor: pointer;
+}
+
+#recTemp, #recMov{
+	margin: 2.5% 2.5%;
+	width: 1% !important;
+	height: 400px !important;
 }
 
 /* Slider */
@@ -437,6 +449,7 @@ input[type='number'] {
 	border-radius: 6px;
 	background-color: #8c9fad;
 	border: 0px solid transparent;
+	cursor: pointer;
 }
 
 .btnBox .colorUnsubbed{

@@ -89,10 +89,10 @@
 				<table class="col">
 					<tr>
 						<td><h2 class="datePickerTitle">Start:</h2></td>
-						<td><h2 class="datePickerTitle">End:</h2></td>
+						<td><input id="recTempBefore" class="datePicker" type="date" name="bday"></td>
 					</tr>
 					<tr>
-						<td><input id="recTempBefore" class="datePicker" type="date" name="bday"></td>
+						<td><h2 class="datePickerTitle">End:</h2></td>
 						<td><input id="recTempAfter" class="datePicker" type="date" name="bday"></td>
 					</tr>
 				</table>

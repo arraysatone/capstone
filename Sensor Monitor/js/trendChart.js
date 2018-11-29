@@ -141,9 +141,10 @@ function updateTemperatures(){
             };
 
             var options = {
+                maintainAspectRatio: false,
                 title: {
                     display: true,
-                    text: '5 Most Recent Entries',
+                    text: 'Temperature Data Range',
                     fontColor: "white",
                     fontSize: 25
                 },
@@ -215,7 +216,7 @@ function updateMovements(){
                 labels: temps.recentDays,
                 datasets : [
                     {
-                        label : "Recent Movements",
+                        label : "Movement Events",
                         data : temps.recentMovements,
                         borderWidth: 3,
                         backgroundColor: 'rgb(55, 61, 66)',
@@ -225,6 +226,7 @@ function updateMovements(){
             };
 
             var options = {
+                maintainAspectRatio: false,
                 title: {
                     display: true,
                     text: 'Last 5 Days',

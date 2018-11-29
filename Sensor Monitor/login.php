@@ -131,6 +131,24 @@ Register to be used later in superuser acc
 				$(this).attr("type","password");
 			}
 		});
+		
+		var usernamefield = document.getElementById("usernameText");
+		var passwordfield = document.getElementById("passwordText");
+		usernamefield.addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				passwordfield.focus()
+			}
+		});
+
+		
+		passwordfield.addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				document.getElementById("loginBtn").click();
+			}
+		});
+		
 		</script>
 	</body>
 </html>

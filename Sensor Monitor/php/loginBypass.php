@@ -1,5 +1,8 @@
 <?php
-	session_start();
+	if(!isset($_SESSION)) {
+		session_start();
+	}
+	
 	/*
 	*    ArraysAtOne Capstone 2018 - Maple Leaf Foods
 	*
@@ -15,7 +18,7 @@
 	*    Alex Ireland
 	*
 	*/
-	
+	$dbservername = "107.180.27.180";
 	$dbusername = "MapleLeafAdmin";
 	$dbpassword = "ClVq0Qzt21jz";
 	$dbname = "Mapleleaf_Capstone";

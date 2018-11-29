@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /*
 *    ArraysAtOne Capstone 2018 - Maple Leaf Foods
@@ -25,7 +24,7 @@ define('DB_HOST', '107.180.27.180');
 define('DB_USERNAME', 'MapleLeafAdmin');
 define('DB_PASSWORD', 'ClVq0Qzt21jz');
 define('DB_NAME', 'Mapleleaf_Capstone');
-$uid = $_SESSION['uid'];
+$uid = $_GET['uid'];
 $before = $_GET['before'];
 $after = $_GET['after'];
 

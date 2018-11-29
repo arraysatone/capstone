@@ -85,7 +85,7 @@
     	</nav>
 
     	<!-- Chart Displays-->
-		<div class="col-lg-12">
+		<div class="col">
 			<div class="row">
 	    		<div class = "col cabinetName"><?php include 'php/getCabinetName.php'?></div>
 	    	</div>

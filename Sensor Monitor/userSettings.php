@@ -49,7 +49,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-		<!--<script src="./js/passwordScript.js"></script>-->
 		<script src="./js/userList.js"></script>
 	</head>
 
@@ -80,44 +79,53 @@
             </div>
     	</nav>
 
-		<table id="userTable">
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Username</th>
-				<th>is Admin</th>
-				<th><input type="button" id="add" class="login buttons fas fa-user-plus" value="&#xf234" onclick="window.location='./registrar'"></th>
-			</tr>
-		<?php			
-		$sql = "SELECT ID, FirstName, LastName, Username, IsAdmin FROM UserTable";
-		$result = $conn->query($sql);
-		
-		if($result->num_rows > 0)
-		{
-			while($row = $result->fetch_assoc()) 
+    	<div id="adminArea">
+    		<h1 class="userTableHeader">Admin Settings</h1>
+			<table id="userTable">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+					<th>is Admin</th>
+					<th><input type="button" id="add" class="login buttons fas fa-user-plus" value="&#xf234" onclick="window.location='./registrar'"></th>
+				</tr>
+			<?php			
+			$sql = "SELECT ID, FirstName, LastName, Username, IsAdmin FROM UserTable";
+			$result = $conn->query($sql);
+			
+			if($result->num_rows > 0)
 			{
-		?>
-			<tr id="row<?php echo $row['ID'];?>">
-				<td id="firstNameVal<?php echo $row['ID'];?>"><?php echo $row['FirstName'];?></td>
-				<td id="lastNameVal<?php echo $row['ID'];?>"><?php echo $row['LastName'];?></td>
-				<td id="usernameVal<?php echo $row['ID'];?>"><?php echo $row['Username'];?></td>
-				<td><input disabled type="checkbox" id="statusVal<?php echo $row['ID'];?>" value="1" <?php echo ($row['IsAdmin']==1 ? 'checked' : '');?>></td>
-				<td>
-				<input type='button' class="editButton fas fa-edit" id="editButton<?php echo $row['ID'];?>" value='&#xf044' onclick="edit('<?php echo $row['ID'];?>');">
-				<input type='button' style="display:none" class="editButton fas fa-edit" id="saveButton<?php echo $row['ID'];?>" value="&#xf0c7" onclick="save('<?php echo $row['ID'];?>');">
-				<input type='button' style="display:none" class="editButton fas fa-trash-alt" id="deleteButton<?php echo $row['ID'];?>" value="&#xf2ed" onclick="deleteR('<?php echo $row['ID'];?>');">
-				</td>
-			</tr>
-		<?php
+				while($row = $result->fetch_assoc()) 
+				{
+			?>
+				<tr id="row<?php echo $row['ID'];?>">
+					<td id="firstNameVal<?php echo $row['ID'];?>"><?php echo $row['FirstName'];?></td>
+					<td id="lastNameVal<?php echo $row['ID'];?>"><?php echo $row['LastName'];?></td>
+					<td id="usernameVal<?php echo $row['ID'];?>"><?php echo $row['Username'];?></td>
+					<td><input disabled type="checkbox" id="statusVal<?php echo $row['ID'];?>" value="1" <?php echo ($row['IsAdmin']==1 ? 'checked' : '');?>></td>
+					<td>
+					<input type='button' class="editButton fas fa-edit" id="editButton<?php echo $row['ID'];?>" value='&#xf044' onclick="edit('<?php echo $row['ID'];?>');">
+					<input type='button' style="display:none" class="editButton fas fa-edit" id="saveButton<?php echo $row['ID'];?>" value="&#xf0c7" onclick="save('<?php echo $row['ID'];?>');">
+					<input type='button' style="display:none" class="editButton fas fa-trash-alt" id="deleteButton<?php echo $row['ID'];?>" value="&#xf2ed" onclick="deleteR('<?php echo $row['ID'];?>');">
+					</td>
+				</tr>
+			<?php
+				}
 			}
-		}
-		?>
-		</table>
+			?>
+			</table>
+		</div>
 
-		<input type="password" id="old" placeholder="Old Password">
-		<input type="password" id="new" placeholder="New Password">
-		<input type="password" id="newconfirm" placeholder="Confirm Password">
-		<input type="button" onclick="changePassword();" value="Update Password">
+		<div id="userArea">
+			<h1 class="userHeader">User Settings</h1>
+			<div id="passwordChangeArea">
+				<h2 class="passwordChangeHeader">Change Password</h2>
+				<input class="passwordChangeField" type="password" id="old" placeholder="Old Password">
+				<input class="passwordChangeField" type="password" id="new" placeholder="New Password">
+				<input class="passwordChangeField" type="password" id="newconfirm" placeholder="Confirm Password">
+				<input class="passwordChangeButton" type="button" onclick="changePassword();" value="Update Password">
+			</div>
+		</div>
 
 	</body>
 </html>

@@ -540,7 +540,7 @@ input[type='number'] {
 
 /* User Settings Table */
 #userTable{
-	margin: 3% 0% 5% 0%;
+	margin: 0%;
 	border-style: hidden;
 	width: 100%
 }
@@ -642,6 +642,60 @@ input[type='number'] {
 }
 
 .registrarButton{
+	border-radius: 6px;
+    border: 0px solid transparent;
+    background-color: #6C7F8E;
+    color: #FAFAFA;
+    font-size: 25px;
+    margin: 2% auto;
+    padding: 2% 5%;
+    cursor: pointer;
+}
+
+/* Password Change Fields */
+#adminArea{
+	margin: 6% 0% 0% 0%;
+}
+
+.userTableHeader{
+	color: #FAFAFA;
+	font-size: 32px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 5% 0%;
+}
+
+.userHeader{
+	color: #FAFAFA;
+	font-size: 32px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 5% 0%;
+}
+
+#passwordChangeArea{
+	text-align: center;
+}
+
+.passwordChangeHeader{
+	text-align: center;
+    font-size: 26px;
+    color: #FAFAFA;
+    padding: 0;
+    margin: 2% 0%;
+}
+
+.passwordChangeField{
+	border-radius: 6px;
+	width: 30%;
+	padding: 3%;
+	margin: 2% 0%;
+	border-style: hidden;
+}
+
+.passwordChangeButton{
 	border-radius: 6px;
     border: 0px solid transparent;
     background-color: #6C7F8E;

@@ -486,4 +486,58 @@
 	    padding: 2% 5%;
 	    cursor: pointer;
 	}
+
+	/* Password Change Fields */
+	#adminArea{
+		margin: 6% 0% 0% 0%;
+	}
+
+	.userTableHeader{
+		color: #FAFAFA;
+		font-size: 28px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin: 5% 0%;
+	}
+
+	.userHeader{
+		color: #FAFAFA;
+		font-size: 28px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin: 5% 0%;
+	}
+
+	#passwordChangeArea{
+		text-align: center;
+	}
+
+	.passwordChangeHeader{
+		text-align: center;
+	    font-size: 24px;
+	    color: #FAFAFA;
+	    padding: 0;
+	    margin: 2% 0%;
+	}
+
+	.passwordChangeField{
+		border-radius: 6px;
+		width: 65%;
+		padding: 3%;
+		margin: 2% 0%;
+		border-style: hidden;
+	}
+
+	.passwordChangeButton{
+		border-radius: 6px;
+	    border: 0px solid transparent;
+	    background-color: #6C7F8E;
+	    color: #FAFAFA;
+	    font-size: 20px;
+	    margin: 2% auto 5% auto;
+	    padding: 2% 5%;
+	    cursor: pointer;
+	}
 }

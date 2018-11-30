@@ -115,31 +115,28 @@
         				<li class="nav-item">
         					<a class="nav-link" href="settings?uid=<?php include 'php/set_GET_uid.php' ?>">Settings</a>
         				</li>
-        				<li class="nav-item">
-        				    <?php  include './php/checkforuser.php' ?>
-        				</li>
+        				<?php  include './php/checkforuser.php' ?>
         			</ul>
         		</div>
             </div>
     	</nav>
-		<br><br><br><br><br><br>
-		<div id="firstnameText">First Name:</div>
-		<input class="formcontrol" type="text" id="firstname">
-		<div id="lasenameText">Last Name:</div>
-		<input class="formcontrol" type="text" id="lastname">
-		<div id="emailText">Email:</div>
-		<input class="formcontrol" type="text" id="email">
-		<div id="usernameText">Username:</div>
-		<input class="formcontrol" type="text" id="username">
-		<div id="passwordText">Password</div>
-		<input type="password" id="password">
-		<input type="button" value="Create User" onclick="CreateUser()">
-		<input type="button" value="Generate Error" onclick="GenerateError()">
-		<input type="button" value="Generate Success" onclick="GenerateSuccess()">
-		<input type="button" value="Clear" onclick="RemoveErrorSuccess()">
+    	<div id="registrarForm">
+    		<h1 class="registrarHeader">New User</h1>
+			<div class="registrarLabel" id="firstnameText">First Name:</div>
+			<input class="formcontrol" type="text" id="firstname">
+			<div class="registrarLabel" id="lasenameText">Last Name:</div>
+			<input class="formcontrol" type="text" id="lastname">
+			<div class="registrarLabel" id="emailText">Email:</div>
+			<input class="formcontrol" type="text" id="email">
+			<div class="registrarLabel" id="usernameText">Username:</div>
+			<input class="formcontrol" type="text" id="username">
+			<div class="registrarLabel" id="passwordText">Password:</div>
+			<input class="formcontrol" type="password" id="password">
+			<br>
+			<input class="registrarButton" type="button" value="Create User" onclick="CreateUser()">
+		</div>
 		
 		<script>
-		
 		function CreateUser(){
 			var postData = {
 				"user": document.getElementById("username").value,

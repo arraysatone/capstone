@@ -445,4 +445,45 @@
 		border-style: hidden;
 		cursor: pointer;
 	}
+
+	/* Registrar Page Stylings */
+	#registrarForm{
+		text-align: center;
+		margin: 6% 0% 0% 0%;
+	}
+
+	.registrarHeader{
+		color: #FAFAFA;
+		text-transform: uppercase;
+		font-size: 26px;
+		font-weight: bold;
+		margin: 2% 0%;
+		padding: 0;
+	}
+
+	.registrarLabel{
+		color: #FAFAFA;
+		font-size: 20px;
+		margin: 0;
+		padding: 0;
+	}
+
+	.formcontrol{
+		border-radius: 6px;
+		width: 60%;
+		padding: 2%;
+		margin: 1% 0% 4% 0%;
+		border-style: hidden;
+	}
+
+	.registrarButton{
+		border-radius: 6px;
+	    border: 0px solid transparent;
+	    background-color: #6C7F8E;
+	    color: #FAFAFA;
+	    font-size: 25px;
+	    margin: 2% auto;
+	    padding: 2% 5%;
+	    cursor: pointer;
+	}
 }

@@ -134,7 +134,7 @@
                     <?php include 'php/getCabinetName.php'?>
                 </div>
                 <div id="cabEdit">
-                    <input type='button' class="editButton settingsButton" id="editCabinet" value="Edit" onclick="edit('<?php include 'php/getCabinetName.php'?>');">
+                    <input type='button' class="changeButton settingsButton" id="editCabinet" value="Edit" onclick="edit('<?php include 'php/getCabinetName.php'?>');">
                     <input type='button' class="saveButton settingsButton" id="saveCabinet" value="Save" style="display: none" onclick="save('<?php include 'php/set_GET_uid.php'?>');">
                 </div>
             </div>

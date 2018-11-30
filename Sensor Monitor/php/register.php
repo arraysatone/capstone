@@ -50,7 +50,6 @@
 	VALUES ('".$username."', '".$hashed_pass."', '".$isAdmin."', '".$firstname."', '".$lastname."')";
 
 	if ($conn->query($sql) === TRUE) {
-		echo "User inserted";
 		$sql = "SELECT ID FROM UserTable WHERE Username='".$username."'";
 		$result = $conn->query($sql);
 
@@ -61,17 +60,17 @@
 				$sql = "INSERT INTO EMAIL_LIST (userAccount, email) VALUES ('".$userID."', '".$email."')";
 				echo $sql;
 				if ($conn->query($sql) === TRUE) {
-					echo 'Email insert correct';
+					echo 'success';
 				}
 				else{
-					echo "ERROR in EMAIL";
+					echo "email failed";
 				}
 			}
 		} else {
 			echo "0 results";
 		}
 	} else {
-	    error_log("Error: " . $sql . "<br>" . $conn->error,0);
+	    error_log("user failed");
 	}
 
 	$conn->close();

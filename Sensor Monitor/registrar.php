@@ -34,7 +34,7 @@
 
 	<!-- Head -->
 	<head>
-
+		<?php include 'bodyguard.php' ?>
 		<!-- Meta -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,39 +53,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-		<script src="./js/userList.js"></script>
-		<style>
-			table,tr,th,td
-			{
-				border: 2px solid white;
-				color: white;
-				user-select: none; 
-				-moz-user-select: none; 
-				-khtml-user-select: none;
-				onselectstart="javascript:return false;
-			}
-			form{
-				width: 96%;
-				margin-top: 2%;
-				margin-left: 2%;
-				margin-right: 2%;
-			}
-			table
-			{
-				width: 96%;
-				margin-top: 2%;
-				margin-left: 2%;
-				margin-right: 2%;
-			}
-			.saveButton {
-				display:none;
-			}
-			#feedback
-			{
-				display:none;
-			}
-
-		</style>
+		<script src="./js/userList.js"></script>		
 	</head>
 
 	<!-- Body -->
@@ -135,47 +103,5 @@
 			<br>
 			<input class="registrarButton" type="button" value="Create User" onclick="CreateUser()">
 		</div>
-		
-		<script>
-		function CreateUser(){
-			var postData = {
-				"user": document.getElementById("username").value,
-				"pass" : document.getElementById("password").value,
-				"firstname" : document.getElementById("firstname").value,
-				"lastname" : document.getElementById("lastname").value,
-				"email" : document.getElementById("email").value
-			};
-			$.post("php/register.php",postData,function(data,status){
-		        	console.log("Data: " + data + "\nStatus: " + status);
-		        	if (data == "success"){
-		        		console.log("Success");
-		        	}
-		        	else if(data == "Password incorrect"){
-		        	}
-					else if(data == "User already exists"){
-					}
-			});
-		}
-		function DoSomething(){
-			console.log("I did something");
-		}
-		function GenerateSuccess(){
-			console.log("Success Generated");
-			$(".formcontrol").addClass("Success");
-		}
-		function GenerateError(){
-			console.log("Error Generated");
-			$(".formcontrol").addClass("Error");
-		}
-		
-		function RemoveErrorSuccess(){
-			$(".formcontrol").removeClass("Error");
-			$(".formcontrol").removeClass("Success");
-		}
-		</script>
-		
-		
-		
-
 	</body>
 </html>

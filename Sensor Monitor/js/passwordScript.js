@@ -1,5 +1,5 @@
 function changePassword(){
-	if(confirm){
+	if(confirm()){
 		var postData = {
 			"pass" : document.getElementById("old").value,
 			"newpass" : document.getElementById("new").value
@@ -8,13 +8,10 @@ function changePassword(){
 			console.log("Data: " + data + "\nStatus: " + status);
 			if (data == "success"){
 				console.log("Success");
-				PasswordChangeSuccess();
+				passwordChangeSuccess();
 			}
-			else if(data == "Password incorrect"){
-				//Placeholder Error Need to replace
-			}
-			else if(data == "User already exists"){
-				// Placeholder Error need to replace
+			else if(data == "Password Incorrect"){
+				incorrectPassword();
 			}
 		});
 	}
@@ -25,7 +22,7 @@ function confirm(){
 		console.log("Pass Match");
 		return true;
 	}
-	PasswordNoMatch();
+	passwordNoMatch();
 	return false;
 }
 
@@ -33,10 +30,14 @@ function redirect(url){
 	window.location.replace(url);
 }
 
-function PasswordNoMatch(){
-	console.log("No match");
+function incorrectPassword(){
+	alert("Password is Incorrect!");
 }
 
-function PasswordChangeSuccess(){
-	//Show success or something
+function passwordNoMatch(){
+	alert("New Passwords Do Not Match!");
+}
+
+function passwordChangeSuccess(){
+	alert("Password Changed Successfully");
 }

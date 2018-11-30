@@ -117,7 +117,7 @@
 		<input type="password" id="old" placeholder="Old Password">
 		<input type="password" id="new" placeholder="New Password">
 		<input type="password" id="newconfirm" placeholder="Confirm Password">
-		<input type="button" onclick="changePassword()">
+		<input type="button" onclick="changePassword();" value="Update Password">
 
 	</body>
 </html>

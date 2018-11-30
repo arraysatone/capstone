@@ -26,6 +26,10 @@
 	$uid = $data->uid;
 	$temp = $data->temperature;
 	$move = $data->movement;
+	
+
+	
+
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -47,8 +51,10 @@
 
 
 	if ($result->num_rows > 0) {
-		$sql = "INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (".$temp.", ".$move.")";
-		if ($conn->query($sql) === TRUE) {
+		$sql = $conn->prepare("INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (?,?)");
+		$sql->bind_Param("di", $temp, $move);
+					
+		if ($sql->execute() === TRUE) {
 		    echo "New record created successfully";
 			checkTemp($temp, $uid, $conn);
 		} 

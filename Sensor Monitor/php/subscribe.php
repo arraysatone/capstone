@@ -67,9 +67,10 @@
 				echo "remove";
 			}
 			else{
-				$addSub = "INSERT INTO `SUB_STATUS` (userId, uid) VALUES ('".$id."','".$uid."')";
-				$addResult = $conn->query($addSub);
-				if ($addResult) {
+				$addSub = $conn->prepare("INSERT INTO `SUB_STATUS` (userId, uid) VALUES (?,?)");
+				$addSub->bind_Param("ss", $id, $uid);
+				
+				if ($addSub->execute() === TRUE) {
 					echo "added";
 				}
 				else{

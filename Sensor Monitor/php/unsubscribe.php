@@ -55,10 +55,10 @@
 	if ($sqlResult->num_rows > 0) {
 		while($row = $sqlResult->fetch_assoc()){
 			$id = $row['id'];
-			$unsubSQL = "DELETE FROM `SUB_STATUS` WHERE `userId` = ".$id." AND `uid` = '".$uid."' ";
-			$unsubResult = $conn->query($unsubSQL);
+			$unsubSQL = $conn->prepare("DELETE FROM `SUB_STATUS` WHERE `userId` = ? AND `uid` = ? ");
+			$unsubSQL->bind_Param("ss", $id, $uid);
 
-			if ($unsubResult) {
+			if ($unsubSQL->execute() === TRUE) {
 				echo "unsubbed";
 			}
 			else {

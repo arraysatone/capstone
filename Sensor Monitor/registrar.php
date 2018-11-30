@@ -20,10 +20,10 @@
 
         - - - - - - - - - - - - - - - - - - - - - - -
 
-		login.php
+		registrar.php
 
-        Jesse Berube
         Marc Harquail
+        Alex Ireland
 
  -->
 
@@ -53,7 +53,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-		<script src="./js/userList.js"></script>		
+		<script src="./js/registerScript.js"></script>		
 	</head>
 
 	<!-- Body -->
@@ -101,7 +101,7 @@
 			<div class="registrarLabel" id="passwordText">Password:</div>
 			<input class="formcontrol" type="password" id="password">
 			<br>
-			<input class="registrarButton" type="button" value="Create User" onclick="CreateUser()">
+			<input class="registrarButton" type="button" value="Create User" onclick="createUser()">
 		</div>
 	</body>
 </html>

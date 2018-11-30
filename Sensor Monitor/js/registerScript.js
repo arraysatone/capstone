@@ -1,4 +1,19 @@
-function CreateUser(){
+/*
+	*    ArraysAtOne Capstone 2018 - Maple Leaf Foods
+	*
+	*    Kevin Baumgartner
+	*    Jesse Berube
+	*    Marc Harquail
+	*    Alex Ireland
+	*
+	* * * * * * * * * * * * * * * * * * * * * * * * *
+	*
+	*    registerScript.js
+	*    
+	*    Alex Ireland
+	*
+	*/
+function createUser(){
 	var postData = {
 		"user": document.getElementById("username").value,
 		"pass" : document.getElementById("password").value,
@@ -7,8 +22,7 @@ function CreateUser(){
 		"email" : document.getElementById("email").value
 	};
 	$.post("php/register.php",postData,function(data,status){
-		console.log("Data: " + data + "\nStatus: " + status);
-		if (data == "success"){
+		if (data.substring(0,7) == "success"){
 			generateSuccess();
 		}
 		else if(data == "user failed"){

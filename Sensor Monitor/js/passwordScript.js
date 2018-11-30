@@ -1,3 +1,18 @@
+/*
+	*    ArraysAtOne Capstone 2018 - Maple Leaf Foods
+	*
+	*    Kevin Baumgartner
+	*    Jesse Berube
+	*    Marc Harquail
+	*    Alex Ireland
+	*
+	* * * * * * * * * * * * * * * * * * * * * * * * *
+	*
+	*    passwordScript.js
+	*    
+	*    Alex Ireland
+	*
+	*/
 function changePassword(){
 	if(confirm()){
 		var postData = {

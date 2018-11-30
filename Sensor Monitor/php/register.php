@@ -28,17 +28,10 @@
 	$hashed_pass = password_hash($unhashed_pass,PASSWORD_DEFAULT);
 	$firstname = $_POST["firstname"];
 	$lastname = $_POST["lastname"];
-	$isAdmin = $_POST["isAdmin"];
 	$email = $_POST["email"];
 	
-	if ($isAdmin != "1"){
-		$isAdmin = 0;
-	}
-	
 	//Password is calculated by taking the first and last username characters and adding them onto the back of the password and then salting.
-	
-	//echo $hashed_pass;
-	
+		
 	// Create connection
 	$conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
 	// Check connection
@@ -46,8 +39,8 @@
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO UserTable (UserName, Password, IsAdmin, FirstName, LastName)
-	VALUES ('".$username."', '".$hashed_pass."', '".$isAdmin."', '".$firstname."', '".$lastname."')";
+	$sql = "INSERT INTO UserTable (UserName, Password, FirstName, LastName)
+	VALUES ('".$username."', '".$hashed_pass."', '".$firstname."', '".$lastname."')";
 
 	if ($conn->query($sql) === TRUE) {
 		$sql = "SELECT ID FROM UserTable WHERE Username='".$username."'";
@@ -58,9 +51,8 @@
 			while($row = $result->fetch_assoc()) {
 				$userID = $row["ID"];
 				$sql = "INSERT INTO EMAIL_LIST (userAccount, email) VALUES ('".$userID."', '".$email."')";
-				echo $sql;
 				if ($conn->query($sql) === TRUE) {
-					echo 'success';
+					echo "success";
 				}
 				else{
 					echo "email failed";

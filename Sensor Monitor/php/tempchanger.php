@@ -11,8 +11,9 @@
 	*
 	*    tempchanger.php
 	*    
+	*	 Jesse Berube
 	*    Marc Harquail
-	*	 Alex Ireland
+	*	 
 	*
 	*/
 	$servername = "107.180.27.180";
@@ -28,11 +29,12 @@
 	if ($conn->connect_error) {
 	  die("Connection failed: " . $conn->connect_error);
 	} 
-
-
-	$sql = "UPDATE SENSORS SET threshold='".$temp."' WHERE uid='".$uid."'";
-	$result = $conn->query($sql);
-	if ($result) {
+	
+	$sql = $conn->prepare("UPDATE SENSORS SET threshold = ? WHERE uid= ?");
+	$sql->bind_Param("ds", $temp, $uid);
+							
+	
+	if ($sql->execute() === TRUE) {
 	    echo "Record updated successfully";
 	} else {
 	    echo "Error updating record: " . $conn->error;

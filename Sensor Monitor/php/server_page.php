@@ -26,6 +26,10 @@
 	$uid = $data->uid;
 	$temp = $data->temperature;
 	$move = $data->movement;
+	
+
+	
+
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -47,8 +51,10 @@
 
 
 	if ($result->num_rows > 0) {
-		$sql = "INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (".$temp.", ".$move.")";
-		if ($conn->query($sql) === TRUE) {
+		$sql = $conn->prepare("INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (?,?)");
+		$sql->bind_Param("di", $temp, $move);
+					
+		if ($sql->execute() === TRUE) {
 		    echo "New record created successfully";
 			checkTemp($temp, $uid, $conn);
 		} 
@@ -57,14 +63,17 @@
 		}
 	}
 	else{
-		$insertSensor = "INSERT INTO SENSORS (uid) VALUES ('".$uid."')";
-		$insertResult = $conn->query($insertSensor);
-		if($insertResult){
+		$insertSensor = $conn->prepare("INSERT INTO SENSORS (uid) VALUES (?)");
+		$insertSensor->bind_Param("s", $uid);
+		
+		if($insertSensor->execute() === TRUE){
 			$createTable = "CREATE TABLE `Mapleleaf_Capstone`.`SENSOR_".$uid."` ( `id` INT NOT NULL AUTO_INCREMENT , `temp` FLOAT(10,7) NOT NULL , `movement` BOOLEAN NOT NULL , `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = MyISAM;";
 			$createResult = $conn->query($createTable);
 			if($createResult){
-				$sql = "INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (".$temp.", ".$move.")";
-				if ($conn->query($sql) === TRUE) {
+				
+				$sql = $conn->prepare("INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (?,?)");
+				$sql->bind_Param("di", $temp, $move);
+				if ($sql->execute() === TRUE) {
 				    echo "New record created successfully";
 				} 
 				else {
@@ -86,9 +95,10 @@
 				$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
 				$emailResult = $conn->query($sqlEmail);
 
-				if($emailResult->num_rows == 0){
-					$sql = "INSERT INTO EMAIL_NOTIF (uid) VALUES ('".$uid."')";
-					$conn->query($sql);
+				if($emailResult->num_rows == 0){				
+					$sql = $conn->prepare("INSERT INTO EMAIL_NOTIF (uid) VALUES (?)");
+				    $sql->bind_Param("s", $uid);
+					$sql->execute();
 
 					$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
 					$emailResult = $conn->query($sqlEmail);
@@ -131,8 +141,10 @@
 							}
 
 							$currentTime = date("Y-m-d H:i:s");
-							$insert = "UPDATE EMAIL_NOTIF SET lastEmail = '".$currentTime."' WHERE uid = '".$uid."'";
-							$runInsert = $conn->query($insert);	
+												
+							$insert = $conn->prepare("UPDATE EMAIL_NOTIF SET lastEmail = ? WHERE uid = ?");
+							$insert->bind_Param("is", $currentTime, $uid);
+							$insert->execute();
 						}
 					}
 				}

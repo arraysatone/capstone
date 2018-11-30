@@ -11,6 +11,7 @@
 *    userList.js
 *    
 *    Jesse Berube
+*	 Marc Harquail
 *
 */
 	
@@ -156,7 +157,7 @@
 			});
 	}
 
-	function changePassword(){
+function changePassword(){
 	if(confirmChange()){
 		var postData = {
 			"pass" : document.getElementById("old").value,
@@ -177,7 +178,10 @@
 
 function confirmChange(){
 	if($("#new").val() == $("#newconfirm").val()){
-		console.log("Pass Match");
+		if($("#new").val() == ""){
+			alert("New Password Cannot Be Blank!");
+			return false;
+		}
 		return true;
 	}
 	passwordNoMatch();
@@ -198,4 +202,5 @@ function passwordNoMatch(){
 
 function passwordChangeSuccess(){
 	alert("Password Changed Successfully");
+	location.reload();
 }

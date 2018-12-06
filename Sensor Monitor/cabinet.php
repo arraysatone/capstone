@@ -107,19 +107,19 @@
 		<!-- MAX Temperature -->
 		<div class="row" id="maxTemp">
 			<div class="histLbl col hist">HIGH*</div>
-			<div class="col hist histInfo">-- &degC</div>
+			<div class="col hist histInfo maxTemp">-- &degC</div>
 		</div>
 
 		<!-- MIN Temperature -->
 		<div class="row" id="minTemp">
 			<div class="col hist histLbl">LOW*</div>
-			<div class="col hist histInfo">-- &degC</div>
+			<div class="col hist histInfo minTemp">-- &degC</div>
 		</div>
 
 		<!-- Last Update -->
 		<div class="row">
 			<div class="col hist histLbl">Updated</div>
-			<div class="col hist histInfo" id="time">--:--</div>
+			<div class="col hist histInfo timeLbl" id="time">--:--</div>
 		</div>
 
 		<!-- Disclaimer -->

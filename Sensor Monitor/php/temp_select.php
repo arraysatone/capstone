@@ -10,7 +10,7 @@ session_start();
 *
 * * * * * * * * * * * * * * * * * * * * * * * * *
 *
-*    updateUserList.php
+*    temp_select.php
 *    
 *	 Marc Harquail
 *

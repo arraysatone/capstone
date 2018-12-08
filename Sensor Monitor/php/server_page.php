@@ -19,18 +19,26 @@
 	$username = "MapleLeafAdmin";
 	$password = "ClVq0Qzt21jz";
 	$dbname = "Mapleleaf_Capstone";
-	$content = file_get_contents("php://input");
-	$data = json_decode($content);
+	// $content = file_get_contents("php://input");
+	// echo $content;
+	// echo gettype($content);
+	// $data = json_decode($content, true);
+
+
+	// if(isset($data)){
+	// 	echo 'jjj';
+	// }else{
+	// 	echo 'Not set';
+	// }
+	// $uid = $data->uid;
+	// $temp = $data->temperature;
+	// $move = $data->movement;
+	$uid = $_POST['uid'];
+	$temp = $_POST['temperature'];
+	$move = $_POST['movement'];
+
 
 	
-	$uid = $data->uid;
-	$temp = $data->temperature;
-	$move = $data->movement;
-	
-
-	
-
-
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
@@ -38,12 +46,12 @@
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	if($move == "True"){
+	/*if($move == "True"){
 		$move = 1;
 	}
 	else{
 		$move = 0;
-	}
+	}*/
 
 	$sql = "SELECT * FROM SENSORS WHERE uid = '".$uid."'";
 
@@ -53,7 +61,6 @@
 	if ($result->num_rows > 0) {
 		$sql = $conn->prepare("INSERT INTO SENSOR_".$uid." (temp, movement) VALUES (?,?)");
 		$sql->bind_Param("di", $temp, $move);
-					
 		if ($sql->execute() === TRUE) {
 		    echo "New record created successfully";
 			checkTemp($temp, $uid, $conn);
@@ -87,10 +94,9 @@
 	function checkTemp($cTemp, $uid, $conn){
 		$sqlThresh = "SELECT threshold FROM SENSORS WHERE uid = '".$uid."'";
 		$thresh = $conn->query($sqlThresh);
-
+		
 		while($threshRow = $thresh->fetch_assoc()){
-			if($threshRow['threshold'] > $ctemp){
-
+			if($threshRow['threshold'] < $cTemp){
 				//Start of code for email notification 		 
 				$sqlEmail = "SELECT lastEmail, emailDelay FROM EMAIL_NOTIF WHERE uid = '".$uid."'";
 				$emailResult = $conn->query($sqlEmail);
@@ -111,12 +117,11 @@
 					//Turn time received from database to unix timestamp
 					$lastEmailUnix = strtotime($lastEmail);
 					$currentTime = time();
-
 					//Calulated the time difference in minutes
-					$difference = ($currentTime - $lastEmailUnix)/60;			
-
+					$difference = ($currentTime - $lastEmailUnix)/60;
 					if($difference > $delay)
 					{
+
 						//Send the notifiation and updated the lastemail column in the database
 
 						$sql = "SELECT EMAIL_LIST.email FROM EMAIL_LIST INNER JOIN SUB_STATUS ON EMAIL_LIST.id = SUB_STATUS.userId WHERE SUB_STATUS.uid = '".$uid."'";
@@ -143,9 +148,9 @@
 							$currentTime = date("Y-m-d H:i:s");
 												
 							$insert = $conn->prepare("UPDATE EMAIL_NOTIF SET lastEmail = ? WHERE uid = ?");
-							$insert->bind_Param("is", $currentTime, $uid);
+							$insert->bind_Param("ss", $currentTime, $uid);
 							$insert->execute();
-						}
+						}	
 					}
 				}
 			}	
